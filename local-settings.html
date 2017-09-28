@@ -4,6 +4,8 @@
 <head>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="lib/jquery-3.2.1.min.js"></script>
 	<title>Your Website</title>
 
 </head>
@@ -11,20 +13,233 @@
 
 	<header>
 		<h1>TCUconfig - System-Konfiguration</h1>
-		<a href="index.html">Startseite</a>
 	</header>
-	<section id="section-general">
-		<h2>Kategorie: Allgemein</h2>
-	</section>
-	<section id="section-shortcut">
-		<h2>Kategorie: Shortcuts</h2>
-	</section>
-	<section id="section-card">
-		<h2>Kategorie: Karten</h2>
-	</section>
-	<section id="section-sponsor">
-		<h2>Kategorie: Sponsoren</h2>
-	</section>
 
+	<main>
+		<nav>
+			<ul>
+				<li class="active" data-section-id="section-general">Allgemein</li>
+				<li data-section-id="section-shortcut">Shortcuts</li>
+				<li data-section-id="section-card">Karten</li>
+				<li data-section-id="section-sponsor">Sponsoren</li>
+			</ul>
+		</nav>
+
+		<section id="section-general">
+			
+			<div class="input-field">
+				<label for="general-ip">IP-Adresse vMix:</label>
+				<input type="text" id="general-ip" data-field-name="DefaultIPAddress" placeholder="192.168.100.104:8088">
+			</div>
+			
+			<div class="input-field">
+				<label for="general-club-pictures">ClubPicturesRootPath:</label>
+				<input type="text" id="general-club-pictures" data-field-name="ClubPicturesRootPath" placeholder="...\Title\Clubs">
+			</div>
+			
+			<div class="input-field">
+				<label for="general-ip">ScoreboardPenaltyColor:</label>
+				<input type="text" id="general-ip" data-field-name="ScoreboardPenaltyColor" placeholder="...\Title\Scoreboard_Penalty_Color.png">
+			</div>
+			
+			<div class="input-field">
+				<label for="general-ip">ScoreboardPenaltyShotsOK:</label>
+				<input type="text" id="general-ip" data-field-name="ScoreboardPenaltyShotsOK" placeholder="...\Title\ScoreboardPenaltyShots_OK.png">
+			</div>
+			
+			<div class="input-field">
+				<label for="general-ip">ScoreboardPenaltyShotsNOK:</label>
+				<input type="text" id="general-ip" data-field-name="ScoreboardPenaltyShotsNOK" placeholder="...\Title\ScoreboardPenaltyShots_NOK.png">
+			</div>
+		</section>
+
+		<section id="section-shortcut" style="display: none;">
+
+			<div class="multiline-field">
+				<label>Shortcut 01:</label>
+				<input type="text" id="shortcut-01-line1" data-field-name="Shortcut01-Line1" placeholder="Linie 1">
+				<input type="text" id="shortcut-01-line2" data-field-name="Shortcut01-Line2" placeholder="Linie 2">
+				<input type="text" id="shortcut-01-line3" data-field-name="Shortcut01-Line3" placeholder="Linie 3">
+			</div>
+
+			<div class="multiline-field">
+				<label>Shortcut 02:</label>
+				<input type="text" id="shortcut-02-line1" data-field-name="Shortcut02-Line1" placeholder="Linie 1">
+				<input type="text" id="shortcut-02-line2" data-field-name="Shortcut02-Line2" placeholder="Linie 2">
+				<input type="text" id="shortcut-02-line3" data-field-name="Shortcut02-Line3" placeholder="Linie 3">
+			</div>
+
+			<div class="multiline-field">
+				<label>Shortcut 03:</label>
+				<input type="text" id="shortcut-03-line1" data-field-name="Shortcut03-Line1" placeholder="Linie 1">
+				<input type="text" id="shortcut-03-line2" data-field-name="Shortcut03-Line2" placeholder="Linie 2">
+				<input type="text" id="shortcut-03-line3" data-field-name="Shortcut03-Line3" placeholder="Linie 3">
+			</div>
+
+			<div class="multiline-field">
+				<label>Shortcut 04:</label>
+				<input type="text" id="shortcut-04-line1" data-field-name="Shortcut04-Line1" placeholder="Linie 1">
+				<input type="text" id="shortcut-04-line2" data-field-name="Shortcut04-Line2" placeholder="Linie 2">
+				<input type="text" id="shortcut-04-line3" data-field-name="Shortcut04-Line3" placeholder="Linie 3">
+			</div>
+
+			<div class="multiline-field">
+				<label>Shortcut 05:</label>
+				<input type="text" id="shortcut-05-line1" data-field-name="Shortcut05-Line1" placeholder="Linie 1">
+				<input type="text" id="shortcut-05-line2" data-field-name="Shortcut05-Line2" placeholder="Linie 2">
+				<input type="text" id="shortcut-05-line3" data-field-name="Shortcut05-Line3" placeholder="Linie 3">
+			</div>
+
+			<div class="multiline-field">
+				<label>Shortcut 06:</label>
+				<input type="text" id="shortcut-06-line1" data-field-name="Shortcut06-Line1" placeholder="Linie 1">
+				<input type="text" id="shortcut-06-line2" data-field-name="Shortcut06-Line2" placeholder="Linie 2">
+				<input type="text" id="shortcut-06-line3" data-field-name="Shortcut06-Line3" placeholder="Linie 3">
+			</div>
+
+			<div class="multiline-field">
+				<label>Shortcut 07:</label>
+				<input type="text" id="shortcut-07-line1" data-field-name="Shortcut07-Line1" placeholder="Linie 1">
+				<input type="text" id="shortcut-07-line2" data-field-name="Shortcut07-Line2" placeholder="Linie 2">
+				<input type="text" id="shortcut-07-line3" data-field-name="Shortcut07-Line3" placeholder="Linie 3">
+			</div>
+
+			<div class="multiline-field">
+				<label>Shortcut 08:</label>
+				<input type="text" id="shortcut-08-line1" data-field-name="Shortcut08-Line1" placeholder="Linie 1">
+				<input type="text" id="shortcut-08-line2" data-field-name="Shortcut08-Line2" placeholder="Linie 2">
+				<input type="text" id="shortcut-08-line3" data-field-name="Shortcut08-Line3" placeholder="Linie 3">
+			</div>
+
+			<div class="multiline-field">
+				<label>Shortcut 09:</label>
+				<input type="text" id="shortcut-09-line1" data-field-name="Shortcut09-Line1" placeholder="Linie 1">
+				<input type="text" id="shortcut-09-line2" data-field-name="Shortcut09-Line2" placeholder="Linie 2">
+				<input type="text" id="shortcut-09-line3" data-field-name="Shortcut09-Line3" placeholder="Linie 3">
+			</div>
+
+			<div class="multiline-field">
+				<label>Shortcut 10:</label>
+				<input type="text" id="shortcut-10-line1" data-field-name="Shortcut10-Line1" placeholder="Linie 1">
+				<input type="text" id="shortcut-10-line2" data-field-name="Shortcut10-Line2" placeholder="Linie 2">
+				<input type="text" id="shortcut-10-line3" data-field-name="Shortcut10-Line3" placeholder="Linie 3">
+			</div>
+
+			<div class="multiline-field">
+				<label>Shortcut 11:</label>
+				<input type="text" id="shortcut-11-line1" data-field-name="Shortcut11-Line1" placeholder="Linie 1">
+				<input type="text" id="shortcut-11-line2" data-field-name="Shortcut11-Line2" placeholder="Linie 2">
+				<input type="text" id="shortcut-11-line3" data-field-name="Shortcut11-Line3" placeholder="Linie 3">
+			</div>
+
+			<div class="multiline-field">
+				<label>Shortcut 12:</label>
+				<input type="text" id="shortcut-12-line1" data-field-name="Shortcut12-Line1" placeholder="Linie 1">
+				<input type="text" id="shortcut-12-line2" data-field-name="Shortcut12-Line2" placeholder="Linie 2">
+				<input type="text" id="shortcut-12-line3" data-field-name="Shortcut12-Line3" placeholder="Linie 3">
+			</div>
+
+			<div class="multiline-field">
+				<label>Shortcut 13:</label>
+				<input type="text" id="shortcut-13-line1" data-field-name="Shortcut13-Line1" placeholder="Linie 1">
+				<input type="text" id="shortcut-13-line2" data-field-name="Shortcut13-Line2" placeholder="Linie 2">
+				<input type="text" id="shortcut-13-line3" data-field-name="Shortcut13-Line3" placeholder="Linie 3">
+			</div>
+		</section>
+
+		<section id="section-card" style="display: none;">
+
+			<div class="multiline-field">
+				<label>Karte 01:</label>
+				<input type="text" id="card-01-line1" data-field-name="Card01-ButtonLabel" placeholder="Bezeichnung Button">
+				<input type="text" id="card-01-line2" data-field-name="Card01-TitleName" placeholder="Titel">
+			</div>
+
+			<div class="multiline-field">
+				<label>Karte 02:</label>
+				<input type="text" id="card-02-line1" data-field-name="Card02-ButtonLabel" placeholder="Bezeichnung Button">
+				<input type="text" id="card-02-line2" data-field-name="Card02-TitleName" placeholder="Titel">
+			</div>
+
+			<div class="multiline-field">
+				<label>Karte 03:</label>
+				<input type="text" id="card-03-line1" data-field-name="Card03-ButtonLabel" placeholder="Bezeichnung Button">
+				<input type="text" id="card-03-line2" data-field-name="Card03-TitleName" placeholder="Titel">
+			</div>
+
+			<div class="multiline-field">
+				<label>Karte 04:</label>
+				<input type="text" id="card-04-line1" data-field-name="Card04-ButtonLabel" placeholder="Bezeichnung Button">
+				<input type="text" id="card-04-line2" data-field-name="Card04-TitleName" placeholder="Titel">
+			</div>
+		</section>
+
+		<section id="section-sponsor" style="display: none;">
+
+			<div class="multiline-field">
+				<label>Sponsor 01:</label>
+				<input type="text" id="sponsor-01-line1" data-field-name="Sponsor01-ButtonLabel" placeholder="Bezeichnung Button">
+				<input type="text" id="sponsor-01-line2" data-field-name="Sponsor01-Title" placeholder="Sponsor">
+				<input type="text" id="sponsor-01-line3" data-field-name="Sponsor01-PicturePath" placeholder="Pfad zum Logo">
+			</div>
+
+			<div class="multiline-field">
+				<label>Sponsor 02:</label>
+				<input type="text" id="sponsor-02-line1" data-field-name="Sponsor02-ButtonLabel" placeholder="Bezeichnung Button">
+				<input type="text" id="sponsor-02-line2" data-field-name="Sponsor02-Title" placeholder="Sponsor">
+				<input type="text" id="sponsor-02-line3" data-field-name="Sponsor02-PicturePath" placeholder="Pfad zum Logo">
+			</div>
+
+			<div class="multiline-field">
+				<label>Sponsor 03:</label>
+				<input type="text" id="sponsor-03-line1" data-field-name="Sponsor03-ButtonLabel" placeholder="Bezeichnung Button">
+				<input type="text" id="sponsor-03-line2" data-field-name="Sponsor03-Title" placeholder="Sponsor">
+				<input type="text" id="sponsor-03-line3" data-field-name="Sponsor03-PicturePath" placeholder="Pfad zum Logo">
+			</div>
+
+			<div class="multiline-field">
+				<label>Sponsor 04:</label>
+				<input type="text" id="sponsor-04-line1" data-field-name="Sponsor04-ButtonLabel" placeholder="Bezeichnung Button">
+				<input type="text" id="sponsor-04-line2" data-field-name="Sponsor04-Title" placeholder="Sponsor">
+				<input type="text" id="sponsor-04-line3" data-field-name="Sponsor04-PicturePath" placeholder="Pfad zum Logo">
+			</div>
+
+			<div class="multiline-field">
+				<label>Sponsor 05:</label>
+				<input type="text" id="sponsor-05-line1" data-field-name="Sponsor05-ButtonLabel" placeholder="Bezeichnung Button">
+				<input type="text" id="sponsor-05-line2" data-field-name="Sponsor05-Title" placeholder="Sponsor">
+				<input type="text" id="sponsor-05-line3" data-field-name="Sponsor05-PicturePath" placeholder="Pfad zum Logo">
+			</div>
+
+			<div class="multiline-field">
+				<label>Sponsor 06:</label>
+				<input type="text" id="sponsor-06-line1" data-field-name="Sponsor06-ButtonLabel" placeholder="Bezeichnung Button">
+				<input type="text" id="sponsor-06-line2" data-field-name="Sponsor06-Title" placeholder="Sponsor">
+				<input type="text" id="sponsor-06-line3" data-field-name="Sponsor06-PicturePath" placeholder="Pfad zum Logo">
+			</div>
+
+			<div class="multiline-field">
+				<label>Sponsor 07:</label>
+				<input type="text" id="sponsor-07-line1" data-field-name="Sponsor07-ButtonLabel" placeholder="Bezeichnung Button">
+				<input type="text" id="sponsor-07-line2" data-field-name="Sponsor07-Title" placeholder="Sponsor">
+				<input type="text" id="sponsor-07-line3" data-field-name="Sponsor07-PicturePath" placeholder="Pfad zum Logo">
+			</div>
+
+			<div class="multiline-field">
+				<label>Sponsor 08:</label>
+				<input type="text" id="sponsor-08-line1" data-field-name="Sponsor08-ButtonLabel" placeholder="Bezeichnung Button">
+				<input type="text" id="sponsor-08-line2" data-field-name="Sponsor08-Title" placeholder="Sponsor">
+				<input type="text" id="sponsor-08-line3" data-field-name="Sponsor08-PicturePath" placeholder="Pfad zum Logo">
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<input type="button" id="return-to-menu" value="Zurück zur Startseite">
+		<input type="button" id="preview-local-settings" value="Config-File anzeigen">
+		<input type="button" id="download-local-settings" value="Config-File herunterladen">
+	</footer>
+
+	<script type="text/javascript" src="init.js"></script>
 </body>
 </html>

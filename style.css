@@ -1,0 +1,154 @@
+body {
+	font-family: museo_sans,Helvetica,Arial,sans-serif;
+    font-weight: 100;
+    color: #000;
+    font-size: 16px;
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+}
+
+header, main, footer {
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+article {
+    width: 395px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    float: left;
+    margin: 5px;
+}
+
+h1 {
+	font-weight: 100;
+    font-size: 44px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+h2 {
+    color: #000;
+    font-weight: 300;
+    font-size: 22px;
+}
+
+input[type="button"] {
+    color: #000;
+    font-weight: 700;
+    text-decoration: none;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    padding: 8px 12px;
+    border: 1px solid #a3a3a3;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    background-color: #ee3124;
+    color: #fff;
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+footer input {
+	margin-top: 20px;
+	margin-left: 20px;
+	margin-right: 0px;
+}
+
+a {
+	text-decoration: none;
+}
+
+nav {
+	margin: 20px 0px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+	display: inline;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    font-size: larger;
+    color: #000;
+    cursor: pointer;
+}
+
+li.active, li:hover {
+    color: #ee3124;
+}
+
+section {
+    border: 1px solid #ccc;
+    padding: 0px 15px;
+    width: 830px;
+}
+
+#init-game {
+    margin: 20px 0px;
+}
+
+#init-game input {
+    text-align: center;
+    padding: 10px;
+}
+
+.input-field {
+	margin: 10px 0px;
+}
+
+.input-field label {
+	width: 230px;
+    display: inline-block;
+}
+
+.input-field input {
+	padding: 5px 10px;
+}
+
+.multiline-field {
+	margin: 10px 0px;
+}
+
+.multiline-field label {
+	width: 230px;
+    display: inline-block;
+}
+
+.multiline-field input {
+	padding: 5px 10px;
+}
+
+.roster {
+    display: table;
+    width: 425px;
+    border: 1px solid;
+    padding: 5px 0px;
+    margin: 20px 0px;
+}
+
+.roster-tr {
+	display: table-row;
+}
+
+.roster-td {
+	display: table-cell;
+	padding: 3px 10px;
+    vertical-align: middle;
+}
+
+.roster-tr:nth-child(even) {
+    background-color: aliceblue;
+}
+
+img.action {
+    height: 20px;
+}

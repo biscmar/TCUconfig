@@ -4,14 +4,29 @@
 <head>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="lib/jquery-3.2.1.min.js"></script>
 	<title>Your Website</title>
 
 </head>
 <body>
 
-	<h1>TCUconfig</h1>
-	<a href="game-settings.html">Spiel-Konfiguration</a><br>
-	<a href="local-settings.html">System-Konfiguration</a>
+	<main>
+		<h1>TCUconfig</h1>
 
+		<article>
+			<h2>Spiel-Konfiguration</h2>
+			<p>Beschreibung der Spiel-Konfigurationsdatei</p>
+			<input type="button" id="show-game-settings-page" value="Spiel-Konfigurationsdatei erstellen">
+		</article>
+		
+		<article>
+			<h2>System-Konfiguration</h2>
+			<p>Beschreibung der System-Konfigurationsdatei</p>
+			<input type="button" id="show-local-settings-page" value="System-Konfigurationsdatei erstellen">
+		</article>
+	</main>
+
+	<script type="text/javascript" src="init.js"></script>
 </body>
 </html>

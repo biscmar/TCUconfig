@@ -1,0 +1,50 @@
+[Game]
+GameNr=876724
+Title=Herren NLA Runde 11 2016/17
+Date=21. Dezember 2017
+Time=17:30
+Location=Sporthalle Ruebisbach Kloten
+Referee1=Christian Kronenberg
+Referee2=Lukas Kronenberg
+Commentator1=Tom Surbeck
+Commentator2=Marci Baumann
+
+[Home]
+38=Christoph Tschopp
+98=Patrick Weber
+4=Toni Schläppi
+5=Silvan Bolliger
+6=Florian Nideröst
+8=David Frischknecht
+10=Patrick Schaufelberger
+14=Thomas Aellig
+15=Severin Baumann
+17=Remo Gallati
+19=Emanuel Zürcher
+23=Sandy Raths
+27=Daniel Zeder
+29=Ursin Thöny
+41=Anjo Urner
+68=Florian Hafner
+84=Gabor Büsser
+87=Manuel Hummer
+88=Markus Kulmala
+74=Nino Scherrer
+82=Jyri Järvinen
+96=Marco Klauenbösch
+00=Manuel Hummer
+TeamLong=UHC Uster
+TeamShort=USTER
+HomeHeadcoach=Vorname Nachname
+HomeStarting6=0,0,0,0,0,0
+
+[Away]
+37=Nicola Brütsch
+87=Calvin Zeller
+3=Nico Meier
+7=Levin Conrad
+8=Jean-Luc Klöti
+TeamLong=UHC Waldkirch-St. Gallen
+TeamShort=WASA
+AwayHeadcoach=Vorname Nachname
+AwayStarting6=0,0,0,0,0,0

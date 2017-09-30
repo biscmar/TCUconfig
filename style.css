@@ -150,10 +150,18 @@ section {
     vertical-align: middle;
 }
 
-.roster-tr:nth-child(even) {
-    background-color: #e9f1f0;
-}
-
 img.action {
     height: 20px;
+    cursor: pointer;
+}
+
+#rosterActionOverlay {
+    border: 1px solid #ccc;
+    z-index: 2;
+    display: block;
+    position: absolute;
+    background: #fff;
+    margin-left: 250px;
+    height: 20px;
+    padding: 10px;
 }

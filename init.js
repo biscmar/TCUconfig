@@ -23,7 +23,19 @@ $('body').on('click', 'input[type="button"]', function() {
 			break;
 
 		case 'init-game-btn':
-			initGame(897262);
+			initGame($('#input-game-id').val());
+			break;
+
+		case 'preview-game-settings':
+			downloadGameSettings('preview');
+			break;
+
+		case 'download-game-settings':
+			downloadGameSettings('download');
+			break;
+
+		case 'close-download-page':
+			$('#show-download-url').hide();
 			break;
 
 		default:

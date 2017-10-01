@@ -155,7 +155,7 @@ img.action {
     cursor: pointer;
 }
 
-#rosterActionOverlay {
+#roster-action-overlay {
     border: 1px solid #ccc;
     z-index: 2;
     display: block;
@@ -164,4 +164,24 @@ img.action {
     margin-left: 250px;
     height: 20px;
     padding: 10px;
+}
+
+#show-download-url {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99999;
+}
+
+#show-download-url div {
+    text-align: center;
+    width: 400px;
+    position: relative;
+    margin: 20% auto;
+    padding: 5px 20px 20px 20px;
+    border-radius: 10px;
+    background: #fff;
 }

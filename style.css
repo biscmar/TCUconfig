@@ -35,6 +35,10 @@ h2 {
     font-size: 22px;
 }
 
+p {
+    overflow-wrap: break-word;
+}
+
 input[type="button"] {
     color: #000;
     font-weight: 700;

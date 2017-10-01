@@ -6,9 +6,9 @@ ScoreboardPenaltyShotsOK=D:\_Media\Unihockey16_17\Title\ScoreboardPenaltyShots_O
 ScoreboardPenaltyShotsNOK=D:\_Media\Unihockey16_17\Title\ScoreboardPenaltyShots_NOK.png
 
 [Shortcut01]
-Line1=
-Line2=
-Line3=
+Line1=Test mb 1
+Line2=Test MB 2
+Line3=Test MB 3
 
 [Shortcut02]
 Line1=

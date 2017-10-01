@@ -45,6 +45,11 @@
 
 	fwrite($file, "[LastLineInConfig]");
 	fclose($file);
-	echo 'http://' . $_SERVER["HTTP_HOST"] . '/TCUconfig/output/game-config.txt';
+
+	if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {
+		echo 'https://' . $_SERVER["HTTP_HOST"] . '/TCUconfig/output/game-config.txt';
+    } else {
+		echo 'http://' . $_SERVER["HTTP_HOST"] . '/TCUconfig/output/game-config.txt';
+    }
 
 ?>

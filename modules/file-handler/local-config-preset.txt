@@ -1,0 +1,21 @@
+﻿[Hidden]
+TextPenalty=Strafe
+TextGoal=Torschütze
+TextOwnGoal=Eigentor
+TextOwnGoalShort=ET
+TextStarting6=Starting 6
+TextBestPlayer=Best Player
+TextTimeOut=Time-Out
+TextHeadcoach=Headcoach
+TextResult1st=Resultat 1. Drittel
+TextResult2nd=Resultat 2. Drittel
+TextResult3rd=Resultat 3. Drittel
+TextResultEnd=Schlussresultat
+TextResultDefaultValue=(0:0, 0:0, 0:0)
+ScoreboardGameTimeRegular=20:00
+ScoreboardGameTimeOvertime=10:00
+ScoreboardPenaltyTimeTemplates=02:00,04:00,05:00
+ShowStatusReplay=1
+ShowStatusRecord=1
+ShowStatusStream=1
+ShowNDIMonitor=1

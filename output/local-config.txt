@@ -1,4 +1,4 @@
-﻿[General]
+[General]
 DefaultIPAddress=192.168.80.104:8088
 ClubPicturesRootPath=D:\_Media\Unihockey16_17\Title\Clubs
 ScoreboardPenaltyColor=D:\_Media\Unihockey16_17\Title\Scoreboard_Penalty_Color.png
@@ -85,11 +85,6 @@ TitleName=
 [Card04]
 ButtonLabel=
 TitleName=
-
-[SponsorAuto]
-Order=1,2
-DurationPause=300
-DurationShow=8
 
 [Sponsor01]
 ButtonLabel=Teleconex

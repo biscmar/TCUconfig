@@ -4,8 +4,9 @@
 <head>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<script type="text/javascript" src="lib/jquery-3.2.1.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../style.css">
+	<script type="text/javascript" src="../../lib/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="../../lib/simpleUpload.min.js"></script>
 	<title>TCUconfig - System-Konfiguration</title>
 
 </head>
@@ -13,6 +14,10 @@
 
 	<header>
 		<h1>TCUconfig - System-Konfiguration</h1>
+		<div id="init-local">
+			<input type="file" id="load-local-settings">
+			<input type="button" id="load-local-settings-btn" value="Konfiguration laden">
+		</div>
 	</header>
 
 	<main>
@@ -39,17 +44,17 @@
 			
 			<div class="input-field">
 				<label for="general-ip">ScoreboardPenaltyColor:</label>
-				<input type="text" id="general-ip" data-field-name="ScoreboardPenaltyColor" placeholder="...\Title\Scoreboard_Penalty_Color.png">
+				<input type="text" id="general-scoreboard-penalty-color" data-field-name="ScoreboardPenaltyColor" placeholder="...\Title\Scoreboard_Penalty_Color.png">
 			</div>
 			
 			<div class="input-field">
 				<label for="general-ip">ScoreboardPenaltyShotsOK:</label>
-				<input type="text" id="general-ip" data-field-name="ScoreboardPenaltyShotsOK" placeholder="...\Title\ScoreboardPenaltyShots_OK.png">
+				<input type="text" id="general-scoreboard-penalty-shots-ok" data-field-name="ScoreboardPenaltyShotsOK" placeholder="...\Title\ScoreboardPenaltyShots_OK.png">
 			</div>
 			
 			<div class="input-field">
 				<label for="general-ip">ScoreboardPenaltyShotsNOK:</label>
-				<input type="text" id="general-ip" data-field-name="ScoreboardPenaltyShotsNOK" placeholder="...\Title\ScoreboardPenaltyShots_NOK.png">
+				<input type="text" id="general-scoreboard-penalty-shots-nok" data-field-name="ScoreboardPenaltyShotsNOK" placeholder="...\Title\ScoreboardPenaltyShots_NOK.png">
 			</div>
 		</section>
 
@@ -232,6 +237,13 @@
 				<input type="text" id="sponsor-08-line3" data-field-name="Sponsor08-PicturePath" placeholder="Pfad zum Logo">
 			</div>
 		</section>
+		<div id="show-download-url" style="display: none;">
+			<div>
+				<p>Die Spiel-Konfiguration wurde erstellt und kann heruntergeladen werden:</p>
+				<a href="http://localhost/TCUconfig/output/local-config.txt" target="_blank" download id="local-settings-download-link">http://localhost/TCUconfig/output/local-config.txt</a>
+				<p><input type="button" id="close-download-page" value="Schliessen"></p>
+			</div>
+		</div>
 	</main>
 
 	<footer>
@@ -240,6 +252,7 @@
 		<input type="button" id="download-local-settings" value="Config-File herunterladen">
 	</footer>
 
-	<script type="text/javascript" src="init.js"></script>
+	<script type="text/javascript" src="local-settings.js"></script>
+	<script type="text/javascript" src="../../init.js"></script>
 </body>
 </html>

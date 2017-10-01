@@ -205,7 +205,7 @@ function downloadGameSettings(mode) {
 
 	$.ajax({
 		type: 'POST',
-		url: 'output/GameSettings.php',
+		url: '../file-handler/GameSettings.php',
 		data: {
 			GameNr: $('#game-id').val(),
 			Title: $('#game-title').val(),

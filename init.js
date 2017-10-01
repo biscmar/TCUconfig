@@ -11,15 +11,15 @@ $('body').on('click', 'input[type="button"]', function() {
 	
 	switch($(this).attr('id')) {
 		case 'return-to-menu':
-			document.location.href = 'index.html';
+			document.location.href = '../../index.html';
 			break;
 
 		case 'show-game-settings-page':
-			document.location.href = 'game-settings.html';
+			document.location.href = 'modules/game-settings/game-settings.html';
 			break;
 
 		case 'show-local-settings-page':
-			document.location.href = 'local-settings.html';
+			document.location.href = 'modules/local-settings/local-settings.html';
 			break;
 
 		case 'init-game-btn':
@@ -34,8 +34,20 @@ $('body').on('click', 'input[type="button"]', function() {
 			downloadGameSettings('download');
 			break;
 
+		case 'preview-local-settings':
+			downloadLocalSettings('preview');
+			break;
+
+		case 'download-local-settings':
+			downloadLocalSettings('download');
+			break;
+
 		case 'close-download-page':
 			$('#show-download-url').hide();
+			break;
+
+		case 'load-local-settings-btn':
+			loadLocalSettings();
 			break;
 
 		default:

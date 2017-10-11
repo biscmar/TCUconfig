@@ -24,10 +24,10 @@
 		fwrite($file, $number . "=" . $name . PHP_EOL);
 	}
 
-	fwrite($file, "HomeTeamLong=" . $HomeTeamData['HomeTeamLong'] . PHP_EOL);
-	fwrite($file, "HomeTeamShort=" . $HomeTeamData['HomeTeamShort'] . PHP_EOL);
-	fwrite($file, "HomeHeadcoach=" . $HomeTeamData['HomeHeadcoach'] . PHP_EOL);
-	fwrite($file, "HomeStarting6=" . $HomeTeamData['HomeStarting6'] . PHP_EOL . PHP_EOL);
+	fwrite($file, "TeamLong=" . $HomeTeamData['HomeTeamLong'] . PHP_EOL);
+	fwrite($file, "TeamShort=" . $HomeTeamData['HomeTeamShort'] . PHP_EOL);
+	fwrite($file, "Headcoach=" . $HomeTeamData['HomeHeadcoach'] . PHP_EOL);
+	fwrite($file, "Starting6=" . $HomeTeamData['HomeStarting6'] . PHP_EOL . PHP_EOL);
 	
 	// Abschlitt [Away]
 	fwrite($file, "[Away]" . PHP_EOL);
@@ -38,10 +38,10 @@
 		fwrite($file, $number . "=" . $name . PHP_EOL);
 	}
 
-	fwrite($file, "AwayTeamLong=" . $AwayTeamData['AwayTeamLong'] . PHP_EOL);
-	fwrite($file, "AwayTeamShort=" . $AwayTeamData['AwayTeamShort'] . PHP_EOL);
-	fwrite($file, "AwayHeadcoach=" . $AwayTeamData['AwayHeadcoach'] . PHP_EOL);
-	fwrite($file, "AwayStarting6=" . $AwayTeamData['AwayStarting6'] . PHP_EOL . PHP_EOL);
+	fwrite($file, "TeamLong=" . $AwayTeamData['AwayTeamLong'] . PHP_EOL);
+	fwrite($file, "TeamShort=" . $AwayTeamData['AwayTeamShort'] . PHP_EOL);
+	fwrite($file, "Headcoach=" . $AwayTeamData['AwayHeadcoach'] . PHP_EOL);
+	fwrite($file, "Starting6=" . $AwayTeamData['AwayStarting6'] . PHP_EOL . PHP_EOL);
 
 	fwrite($file, "[LastLineInConfig]");
 	fclose($file);

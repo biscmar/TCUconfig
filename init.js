@@ -115,6 +115,12 @@ $('body').on('click', '.action', function() {
 			changeStartingSixPosition('addToStartingSix', $(this).parent().prev().attr('data-player-id'));
 			break;
 
+		case 'removePlayer':
+			$(this).closest('.roster-tr').remove();
+			$('#roster-home').find('.roster-tr:odd').css('background-color', '#e9f1f0');
+			$('#roster-home').find('.roster-tr:even').css('background-color', '#fff');
+			break;
+
 		default:
 			console.log('Action triggered.');
 	}

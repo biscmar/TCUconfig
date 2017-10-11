@@ -125,6 +125,10 @@ function parseImportedLocalSettings(importedLocalSettings) {
 	$('#sponsor-08-line1').val(importedLocalSettings.Sponsor08.ButtonLabel);
 	$('#sponsor-08-line2').val(importedLocalSettings.Sponsor08.Title);
 	$('#sponsor-08-line3').val(importedLocalSettings.Sponsor08.PicturePath);
+
+	$('#sponsor-autosettings-line1').val(importedLocalSettings.SponsorAuto.Order);
+	$('#sponsor-autosettings-line2').val(importedLocalSettings.SponsorAuto.DurationPause);
+	$('#sponsor-autosettings-line3').val(importedLocalSettings.SponsorAuto.DurationShow);
 }
 
 function getShortcutData(shortcutNr) {
@@ -182,6 +186,11 @@ function downloadLocalSettings(mode) {
 		Card04: getCardData('04'),
 	};
 
+	var sponsorAuto = new Object();
+	sponsorAuto.Order = $('#sponsor-autosettings-line1').val();
+	sponsorAuto.DurationPause = $('#sponsor-autosettings-line2').val();
+	sponsorAuto.DurationShow = $('#sponsor-autosettings-line3').val();
+
 	var sponsorData = {
 		Sponsor01: getSponsorData('01'),
 		Sponsor02: getSponsorData('02'),
@@ -191,6 +200,7 @@ function downloadLocalSettings(mode) {
 		Sponsor06: getSponsorData('06'),
 		Sponsor07: getSponsorData('07'),
 		Sponsor08: getSponsorData('08'),
+		SponsorAuto: sponsorAuto
 	};
 
 	$.ajax({

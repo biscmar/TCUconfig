@@ -20,7 +20,10 @@ function initGame(gameId) {
 			var time = game.attrs.starts_at.split('T')[1].split(':');
 			$('#game-time').val(time[0] + ':' + time[1]);
 			
-			$('#game-location').val(references[game.attrs.gym].attrs.name);
+			var gymReference = game.attrs.gym;
+			var locationReference = references[gymReference].attrs.address;
+			$('#game-location').val(references[gymReference].attrs.name + ', ' + references[locationReference].attrs.location);
+
 			$('#game-ref-1').val(references[game.attrs.referees[0]].attrs.first_name + ' ' + references[game.attrs.referees[0]].attrs.last_name);
 			$('#game-ref-2').val(references[game.attrs.referees[1]].attrs.first_name + ' ' + references[game.attrs.referees[1]].attrs.last_name);
 
@@ -28,13 +31,13 @@ function initGame(gameId) {
 			var home = references[game.attrs.home_team];
 			$('#home-team-long').val(home.attrs.name);
 			$('#home-team-short').val(home.attrs.streaming_name);
-			parseRoster(game.attrs.lineups[0], references, 'roster-home');
+			parseRoster(game.attrs.lineups[0], references, 'home');
 
 			// Section "Away"
 			var away = references[game.attrs.away_team];
 			$('#away-team-long').val(away.attrs.name);
 			$('#away-team-short').val(away.attrs.streaming_name);
-			parseRoster(game.attrs.lineups[1], references, 'roster-away');
+			parseRoster(game.attrs.lineups[1], references, 'away');
 		}
 	});
 	
@@ -42,13 +45,14 @@ function initGame(gameId) {
 
 }
 
-function parseRoster(lineUpList, references, elementId) {
-	$('#' + elementId).empty();
+function parseRoster(lineUpList, references, team) {
+	$('#roster-' + team).empty();
 
 	$.each(lineUpList, function(index, value) {
 		var position = references[value];
 		var player = references[position.attrs.player];
 		
+		// Element für Roster
 		var rosterRow = $('<div>', {
 			'class': 'roster-tr',
 			'data-player-id': player.id
@@ -66,8 +70,15 @@ function parseRoster(lineUpList, references, elementId) {
 			}).append(getActionImg('addToStartingSix'))
 			  .append(getActionImg('removePlayer'))
 		);
+		
+		$('#roster-' + team).append(rosterRow);
 
-		$('#' + elementId).append(rosterRow);
+		// Element für Topscorer-Auswahl
+		var topscorerOption = $('<option>', {
+			'value': player.attrs.name
+		}).text(position.attrs.number + ' - ' + player.attrs.name);
+		
+		$('#topscorer-' + team).append(topscorerOption);
 	});
 
 	$('.roster-tr:odd').css('background-color', '#e9f1f0');
@@ -183,6 +194,7 @@ function getRosterList(team) {
 		var name = $(this).find('div[class="roster-td name"]').text();
 		rosterList[number] = name;
 	});
+	rosterList['00'] = $('#topscorer-' + team).val();
 	return rosterList;
 }
 

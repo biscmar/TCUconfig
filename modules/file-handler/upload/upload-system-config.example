@@ -6,9 +6,9 @@ ScoreboardPenaltyShotsOK=D:\_Media\Unihockey16_17\Title\ScoreboardPenaltyShots_O
 ScoreboardPenaltyShotsNOK=D:\_Media\Unihockey16_17\Title\ScoreboardPenaltyShots_NOK.png
 
 [Shortcut01]
-Line1=
-Line2=
-Line3=
+Line1=Test mb 1
+Line2=Test MB 2
+Line3=Test MB 3
 
 [Shortcut02]
 Line1=
@@ -86,6 +86,11 @@ TitleName=
 ButtonLabel=
 TitleName=
 
+[SponsorAuto]
+Order=1,2,3,4
+DurationPause=270
+DurationShow=10
+
 [Sponsor01]
 ButtonLabel=Teleconex
 Title=Sponsor
@@ -135,11 +140,14 @@ TextStarting6=Starting 6
 TextBestPlayer=Best Player
 TextTimeOut=Time-Out
 TextHeadcoach=Headcoach
+TextCommentator=Kommentar
+TextReferee=Schiedsrichter
 TextResult1st=Resultat 1. Drittel
 TextResult2nd=Resultat 2. Drittel
 TextResult3rd=Resultat 3. Drittel
 TextResultEnd=Schlussresultat
-TextResultDefaultValue=(0:0, 0:0, 0:0)
+TextResultAfterOvertime=(n.V.)
+TextResultAfterPenalty=(n.P.)
 ScoreboardGameTimeRegular=20:00
 ScoreboardGameTimeOvertime=10:00
 ScoreboardPenaltyTimeTemplates=02:00,04:00,05:00
@@ -147,5 +155,6 @@ ShowStatusReplay=1
 ShowStatusRecord=1
 ShowStatusStream=1
 ShowNDIMonitor=1
+AutoStarting6=0
 
 [LastLineInConfig]

@@ -2,7 +2,8 @@
 	
 	$ini_preset = parse_ini_file("system-config-preset.txt", true, INI_SCANNER_RAW);
 	
-	$fileLocation = getenv("DOCUMENT_ROOT") . '/TCUconfig/output/system-config.txt';
+	$fileSuffix = date('YmdGis');
+	$fileLocation = getenv("DOCUMENT_ROOT") . '/TCUconfig/output/system-config_' . $fileSuffix . '.txt';
 	$file = fopen($fileLocation, "w");
 
 	// Abschlitt [General]
@@ -67,9 +68,9 @@
 	fclose($file);
 
 	if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {
-		echo 'https://' . $_SERVER["HTTP_HOST"] . '/TCUconfig/output/system-config.txt';
+		echo 'https://' . $_SERVER["HTTP_HOST"] . '/TCUconfig/output/system-config_' . $fileSuffix . '.txt';
     } else {
-		echo 'http://' . $_SERVER["HTTP_HOST"] . '/TCUconfig/output/system-config.txt';
+		echo 'http://' . $_SERVER["HTTP_HOST"] . '/TCUconfig/output/system-config_' . $fileSuffix . '.txt';
     }
 
 ?>

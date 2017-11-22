@@ -1,6 +1,7 @@
 <?php
 	
-	$fileLocation = getenv("DOCUMENT_ROOT") . '/TCUconfig/output/game-config.txt';
+	$fileSuffix = date('YmdGis');
+	$fileLocation = getenv("DOCUMENT_ROOT") . '/TCUconfig/output/game-config_' . $fileSuffix . '.txt';
 	$file = fopen($fileLocation, "w");
 
 	// Abschlitt [Game]
@@ -47,9 +48,9 @@
 	fclose($file);
 
 	if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {
-		echo 'https://' . $_SERVER["HTTP_HOST"] . '/TCUconfig/output/game-config.txt';
+		echo 'https://' . $_SERVER["HTTP_HOST"] . '/TCUconfig/output/game-config_' . $fileSuffix . '.txt';
     } else {
-		echo 'http://' . $_SERVER["HTTP_HOST"] . '/TCUconfig/output/game-config.txt';
+		echo 'http://' . $_SERVER["HTTP_HOST"] . '/TCUconfig/output/game-config_' . $fileSuffix . '.txt';
     }
 
 ?>

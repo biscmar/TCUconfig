@@ -1,9 +1,10 @@
 function initGame(gameId) {
 	console.log('Spiel ' + gameId + ' wird geladen.');
 	$.ajax({
-		url: 'https://api-staging.swissunihockey.ch/bo/games/' + gameId + '?set=game-report',
+		url: Config.apiUrl + gameId + Config.apiParams,
 		dataType: "json",
 		type: "GET",
+		crossDomain: true,
 		success: function(r) {
 			console.log('Spiel geladen.');
 
@@ -40,9 +41,6 @@ function initGame(gameId) {
 			parseRoster(game.attrs.lineups[1], references, 'away');
 		}
 	});
-	
-
-
 }
 
 function parseRoster(lineUpList, references, team) {

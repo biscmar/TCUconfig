@@ -4,7 +4,7 @@
 	if ($status == UPLOAD_ERR_OK) {
 		$tmp_name = $_FILES["file"]["tmp_name"];
 		$name = basename($_FILES["file"]["name"]);
-		move_uploaded_file($tmp_name, "C:/xampp/htdocs/TCUconfig/upload/upload-" . $name);
+		move_uploaded_file($tmp_name, "../../upload/upload-" . $name);
 	} else {
 		$output = array("success" => false, "error" => "File konnte nicht hochgeladen werden");
 		echo json_encode($output);		

@@ -1,5 +1,5 @@
 function loadLocalSettings() {
-	$('#load-local-settings').simpleUpload('/TCUconfig/modules/file-handler/LoadLocalSettings.php', {
+	$('#load-local-settings').simpleUpload('../file-handler/LoadLocalSettings.php', {
 		limit: 1,
 
 		success: function(data){

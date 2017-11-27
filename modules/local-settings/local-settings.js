@@ -213,14 +213,16 @@ function downloadLocalSettings(mode) {
 			SponsorData: sponsorData
 		},
 		success: function(r) {
+			var outputFile = JSON.parse(r);
+			
 			switch(mode) {
 				case 'preview':
-					window.open(r, '_blank');
+					window.open('../file-handler/SettingsPreview.php?file=' + outputFile.file, '_blank');
 					break;
 
 				case 'download':
-					$('#local-settings-download-link').attr('href', r);
-					$('#local-settings-download-link').text(r);
+					$('#local-settings-download-link').attr('href', outputFile.protocol + outputFile.path + outputFile.file);
+					$('#local-settings-download-link').text(outputFile.file);
 					$('#show-download-url').show();
 					break;
 			}

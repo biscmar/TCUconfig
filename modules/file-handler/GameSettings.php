@@ -47,10 +47,23 @@
 	fwrite($file, "[LastLineInConfig]");
 	fclose($file);
 
+	$path = $_SERVER["HTTP_HOST"] . '/TCUconfig/output/';
+	$file = 'game-config_' . $fileSuffix . '.txt';
+
 	if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {
-		echo 'https://' . $_SERVER["HTTP_HOST"] . '/TCUconfig/output/game-config_' . $fileSuffix . '.txt';
+		$return = array(
+			"protocol" => "https://",
+			"path" => $path,
+			"file" => $file
+		);
     } else {
-		echo 'http://' . $_SERVER["HTTP_HOST"] . '/TCUconfig/output/game-config_' . $fileSuffix . '.txt';
+		$return = array(
+			"protocol" => "http://",
+			"path" => $path,
+			"file" => $file
+		);
     }
+
+	echo json_encode($return);
 
 ?>

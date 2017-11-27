@@ -230,14 +230,16 @@ function downloadGameSettings(mode) {
 			AwayTeamData: awayTeamData
 		},
 		success: function(r) {
+			var outputFile = JSON.parse(r);
+			
 			switch(mode) {
 				case 'preview':
-					window.open(r, '_blank');
+					window.open('../file-handler/SettingsPreview.php?file=' + outputFile.file, '_blank');
 					break;
 
 				case 'download':
-					$('#game-settings-download-link').attr('href', r);
-					$('#game-settings-download-link').text(r);
+					$('#game-settings-download-link').attr('href', outputFile.protocol + outputFile.path + outputFile.file);
+					$('#game-settings-download-link').text(outputFile.file);
 					$('#show-download-url').show();
 					break;
 			}

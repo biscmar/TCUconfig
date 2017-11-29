@@ -1,2 +1,4 @@
 output/*.txt
+output/*.log
 upload/*.txt
+upload/*.log

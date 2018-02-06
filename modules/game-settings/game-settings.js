@@ -45,6 +45,7 @@ function initGame(gameId) {
 
 function parseRoster(lineUpList, references, team) {
 	$('#roster-' + team).empty();
+	$('#topscorer-' + team).empty();
 
 	$.each(lineUpList, function(index, value) {
 		var position = references[value];

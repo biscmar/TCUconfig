@@ -41,6 +41,10 @@ $('body').on('click', 'input[type="button"]', function() {
 		case 'download-local-settings':
 			downloadLocalSettings('download');
 			break;
+		
+		case 'load-local-settings-template':
+			loadLocalSettingsTemplate();
+			break;
 
 		case 'close-download-page':
 			$('#show-download-url').hide();
@@ -51,7 +55,7 @@ $('body').on('click', 'input[type="button"]', function() {
 			break;
 
 		default:
-			console.log('Footer-Button "' + $(this).attr('id') + '" ausgewählt.')
+			console.log('Button "' + $(this).attr('id') + '" ausgewählt.')
 	}
 
 });

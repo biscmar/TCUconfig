@@ -16,10 +16,10 @@
 //  Neues Config-File generieren
 //===================================================================================================================================================
 
-	$ini_preset = parse_ini_file("system-config-preset.txt", true, INI_SCANNER_RAW);
+	$ini_preset = parse_ini_file("../../templates/system-config-template.txt", true, INI_SCANNER_RAW);
 	
 	$fileSuffix = date('YmdGis');
-	$fileLocation = getenv("DOCUMENT_ROOT") . '/TCUconfig/output/system-config_' . $fileSuffix . '.txt';
+	$fileLocation = getenv("DOCUMENT_ROOT") . '/output/system-config_' . $fileSuffix . '.txt';
 	$file = fopen($fileLocation, "w");
 
 	// Abschlitt [General]
@@ -77,13 +77,41 @@
 	foreach ($ini_preset["Hidden"] as $key => $value) {
  		fwrite($file, $key . "=" . $value . PHP_EOL);
 	}
+	
+	fwrite($file, PHP_EOL);
+
+	// Abschlitt [PenaltyCodes2]
+	fwrite($file, "[PenaltyCodes2]" . PHP_EOL);
+
+	foreach ($ini_preset["PenaltyCodes2"] as $key => $value) {
+ 		fwrite($file, $key . "=" . $value . PHP_EOL);
+	}
 
 	fwrite($file, PHP_EOL);
 
+	// Abschlitt [PenaltyCodes5]
+	fwrite($file, "[PenaltyCodes5]" . PHP_EOL);
+
+	foreach ($ini_preset["PenaltyCodes5"] as $key => $value) {
+ 		fwrite($file, $key . "=" . $value . PHP_EOL);
+	}
+
+	fwrite($file, PHP_EOL);
+
+	// Abschlitt [PenaltyCodes10]
+	fwrite($file, "[PenaltyCodes10]" . PHP_EOL);
+
+	foreach ($ini_preset["PenaltyCodes10"] as $key => $value) {
+ 		fwrite($file, $key . "=" . $value . PHP_EOL);
+	}
+
+	fwrite($file, PHP_EOL);
+	fwrite($file, "[System-Config]");
+	fwrite($file, PHP_EOL);
 	fwrite($file, "[LastLineInConfig]");
 	fclose($file);
 
-	$path = $_SERVER["HTTP_HOST"] . '/TCUconfig/output/';
+	$path = $_SERVER["HTTP_HOST"] . '/output/';
 	$file = 'system-config_' . $fileSuffix . '.txt';
 
 	if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {

@@ -7,18 +7,17 @@ function loadLocalSettings() {
 				//$('#progress').html("Success!<br>Data: " + JSON.stringify(data));
 				var importedLocalSettings = JSON.parse(data);
 
-				console.log(importedLocalSettings);
 				if (importedLocalSettings.success == true) {
 					parseImportedLocalSettings(importedLocalSettings.ini_array);
 				} else {
-					console.log("Failure: " + importedLocalSettings.error);
+					console.error("Failure: " + importedLocalSettings.error);
 				}
 			},
 
 		error: function(error){
 			//upload failed
 			//$('#progress').html("Failure!<br>" + error.name + ": " + error.message);
-			console.log("Failure!<br>" + error.name + ": " + error.message);
+			console.error("Failure!<br>" + error.name + ": " + error.message);
 		}
 	});
 }
@@ -225,6 +224,22 @@ function downloadLocalSettings(mode) {
 					$('#local-settings-download-link').text(outputFile.file);
 					$('#show-download-url').show();
 					break;
+			}
+		}
+	});
+}
+
+function loadLocalSettingsTemplate() {
+	$.ajax({
+		type: 'POST',
+		url: '../file-handler/LoadLocalSettingsTemplate.php',
+		success: function(r) {
+			var importedLocalSettings = JSON.parse(r);
+			
+			if (importedLocalSettings.success == true) {
+				parseImportedLocalSettings(importedLocalSettings.ini_array);
+			} else {
+				console.error("Failure: Template konnte nicht geladen werden");
 			}
 		}
 	});

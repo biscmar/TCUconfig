@@ -1,0 +1,209 @@
+[General]
+DefaultIPAddress=localhost:8088
+ClubPicturesRootPath=Pfad\zu\den\Vorlagen\Titles\Title_V07\Clubs
+ScoreboardPenaltyColor=Pfad\zu\den\Vorlagen\Titles\Title_V07\Scoreboard_Penalty_Color.png
+ScoreboardPenaltyShotsOK=Pfad\zu\den\Vorlagen\Titles\Title_V07\ScoreboardPenaltyShots_OK.png
+ScoreboardPenaltyShotsNOK=Pfad\zu\den\Vorlagen\Titles\Title_V07\ScoreboardPenaltyShots_NOK.png
+
+[Shortcut01]
+Line1=Live aus der Sporthalle ...
+Line2=Unihockey Meisterschaft Herren NLA...
+Line3=Wir starten mit der Übertragung 15 Minuten vor Spielbeginn!
+
+[Shortcut02]
+Line1=
+Line2=
+Line3=
+
+[Shortcut03]
+Line1=
+Line2=
+Line3=
+
+[Shortcut04]
+Line1=
+Line2=
+Line3=
+
+[Shortcut05]
+Line1=
+Line2=
+Line3=
+
+[Shortcut06]
+Line1=
+Line2=
+Line3=
+
+[Shortcut07]
+Line1=
+Line2=
+Line3=
+
+[Shortcut08]
+Line1=
+Line2=
+Line3=
+
+[Shortcut09]
+Line1=
+Line2=
+Line3=
+
+[Shortcut10]
+Line1=
+Line2=
+Line3=
+
+[Shortcut11]
+Line1=Highlights
+Line2=
+Line3=
+
+[Shortcut12]
+Line1=(c) Verein
+Line2=<Livestream Team Mitglieder>
+Line3=<Livestream Team Mitglieder>
+
+[Shortcut13]
+Line1=Technische Störung!
+Line2=Wir bitten um Entschuldigung!
+Line3=
+
+[Card01]
+ButtonLabel=NLA Tabelle
+TitleName=Title-Ranking
+
+[Card02]
+ButtonLabel=NLA Aktuelle Spielrunde
+TitleName=Title-CurrentGames
+
+[Card03]
+ButtonLabel=
+TitleName=
+
+[Card04]
+ButtonLabel=
+TitleName=
+
+[Sponsor01]
+ButtonLabel=Bamert
+Title=Sponsor
+PicturePath=Pfad\zu\den\Vorlagen\Titles\Title_V07\Logos\Logo_Canon.png
+
+[Sponsor02]
+ButtonLabel=Canon
+Title=Sponsor
+PicturePath=Pfad\zu\den\Vorlagen\Titles\Title_V07\Logos\Logo_Canon.png
+
+[Sponsor03]
+ButtonLabel=Mobiliar
+Title=Sponsor
+PicturePath=Pfad\zu\den\Vorlagen\Titles\Title_V07\Logos\Logo_Mobiliar.png
+
+[Sponsor04]
+ButtonLabel=Nüssli
+Title=Sponsor
+PicturePath=Pfad\zu\den\Vorlagen\Titles\Title_V07\Logos\Logo_Nüssli.png
+
+[Sponsor05]
+ButtonLabel=Regio
+Title=Sponsor
+PicturePath=Pfad\zu\den\Vorlagen\Titles\Title_V07\Logos\Logo_Regio.png
+
+[Sponsor06]
+ButtonLabel=Schibli
+Title=Sponsor
+PicturePath=Pfad\zu\den\Vorlagen\Titles\Title_V07\Logos\Logo_Schibli.png
+
+[Sponsor07]
+ButtonLabel=Spital Uster
+Title=Sponsor
+PicturePath=Pfad\zu\den\Vorlagen\Titles\Title_V07\Logos\Logo_SpitalUster.png
+
+[Sponsor08]
+ButtonLabel=Bank BSU
+Title=Sponsor
+PicturePath=Pfad\zu\den\Vorlagen\Titles\Title_V07\Logos\Logo_BankBSU.png
+
+[SponsorAuto]
+Order=1,2,3,4,5,6,7,8
+DurationPause=250
+DurationShow=8
+
+[Hidden]
+TextPenalty=Strafe
+TextGoal=Torschütze
+TextOwnGoal=Eigentor
+TextOwnGoalShort=ET
+TextStarting6=Starting 6
+TextBestPlayer=Best Player
+TextTimeOut=Time-Out
+TextHeadcoach=Headcoach
+TextCommentator=Kommentar
+TextReferee=Schiedsrichter
+TextResult1st=Resultat 1. Drittel
+TextResult2nd=Resultat 2. Drittel
+TextResult3rd=Resultat 3. Drittel
+TextResultEnd=Schlussresultat
+TextResultAfterOvertime=(n.V.)
+TextResultAfterPenalty=(n.P.)
+TextLineupHeader=Aufstellung
+TextLineupLabel1=Linie 1
+TextLineupLabel2=Linie 2
+TextLineupLabel3=Linie 3
+TextLineupLabel4=Ersatz
+TextLineupLabel5=Torhüter
+ScoreboardTeamDefaultColor=#e32412
+ScoreboardGameTimeRegular=20:00
+ScoreboardGameTimeOvertime=10:00
+ScoreboardPenaltyTimeTemplates=02:00,04:00,05:00
+ShowStatusReplay=1
+ShowStatusRecord=1
+ShowStatusStream=1
+ShowNDIMonitor=1
+AutoStarting6=0
+
+[PenaltyCodes2]
+201=Stockschlag
+202=Blockieren des Stockes
+203=Heben des Stockes
+204=Gefährlicher Stockeinsatz
+205=Hoher Fuss
+206=Hoher Stock
+207=Stossen
+208=Überharter Körpereinsatz
+209=Halten
+210=Sperren
+211=Unkorrekter Abstand
+212=Bodenspiel
+213.1=Spielen mit Hand
+213.2=Spielen mit Arm
+213.3=Spielen mit Kopf
+214=Torhüterbehinderung
+215=Wechselfehler
+216=Zu viele Spieler
+217=Wiederholte Vergehen
+218=Spielverzögerung
+219=Reklamieren
+220=Verlassen der Strafbank
+221=Unkorrekte Ausrüstung
+222=Falsche Materialbeanstandung
+223=Verhindern eines Tores
+224=Spielen ohne Stock
+;225=Nichtentfernen der Teile eines gebrochenen Stockes
+226=Unkorrekte Kleidung
+;227=Entgegennahme eines Stockes ausserhalb der Wechselzone
+
+[PenaltyCodes5]
+501=Grober Stockschlag
+502=Haken
+503=Stockwurf
+504=Grober Körpereinsatz
+505=Grobes Beinstellen
+
+[PenaltyCodes10]
+101=Unsportliches Benehmen
+
+[System-Config]
+[LastLineInConfig]

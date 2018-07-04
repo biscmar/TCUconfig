@@ -17,7 +17,7 @@
 //===================================================================================================================================================
 	
 	$fileSuffix = date('YmdGis');
-	$fileLocation = getenv("DOCUMENT_ROOT") . '/TCUconfig/output/game-config_' . $fileSuffix . '.txt';
+	$fileLocation = getenv("DOCUMENT_ROOT") . '/output/game-config_' . $fileSuffix . '.txt';
 	$file = fopen($fileLocation, "w");
 
 	// Abschlitt [Game]
@@ -63,7 +63,7 @@
 	fwrite($file, "[LastLineInConfig]");
 	fclose($file);
 
-	$path = $_SERVER["HTTP_HOST"] . '/TCUconfig/output/';
+	$path = $_SERVER["HTTP_HOST"] . '/output/';
 	$file = 'game-config_' . $fileSuffix . '.txt';
 
 	if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {

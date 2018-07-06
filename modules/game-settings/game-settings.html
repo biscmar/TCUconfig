@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 
 <html>
+
 <head>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -9,6 +10,7 @@
 	<title>TCUconfig - Spiel-Konfiguration</title>
 
 </head>
+
 <body>
 
 	<header>
@@ -29,47 +31,47 @@
 		</nav>
 
 		<section id="section-game">
-			
+
 			<div class="input-field">
 				<label for="game-id">Spiel-ID:</label>
 				<input type="text" id="game-id" data-field-name="GameNr" readonly="readonly">
 			</div>
-			
+
 			<div class="input-field">
 				<label for="game-title">Titel:</label>
 				<input type="text" id="game-title" data-field-name="Title">
 			</div>
-			
+
 			<div class="input-field">
 				<label for="game-date">Datum:</label>
 				<input type="text" id="game-date" data-field-name="Date">
 			</div>
-			
+
 			<div class="input-field">
 				<label for="game-time">Zeit:</label>
 				<input type="text" id="game-time" data-field-name="Time">
 			</div>
-			
+
 			<div class="input-field">
 				<label for="game-location">Spielort:</label>
 				<input type="text" id="game-location" data-field-name="Location">
 			</div>
-			
+
 			<div class="input-field">
 				<label for="game-ref-1">Schiedsrichter 1:</label>
 				<input type="text" id="game-ref-1" data-field-name="Referee1">
 			</div>
-			
+
 			<div class="input-field">
 				<label for="game-ref-2">Schiedsrichter 2:</label>
 				<input type="text" id="game-ref-2" data-field-name="Referee2">
 			</div>
-			
+
 			<div class="input-field">
 				<label for="game-com-1">Kommentator 1:</label>
 				<input type="text" id="game-com-1" data-field-name="Commentator1">
 			</div>
-			
+
 			<div class="input-field">
 				<label for="game-com-2">Kommentator 2:</label>
 				<input type="text" id="game-com-2" data-field-name="Commentator2">
@@ -82,31 +84,254 @@
 				<label for="home-team-long">Heimteam lang:</label>
 				<input type="text" id="home-team-long" data-field-name="HomeTeamLong">
 			</div>
-			
+
 			<div class="input-field">
 				<label for="home-team-short">Heimteam kurz:</label>
 				<input type="text" id="home-team-short" data-field-name="HomeTeamShort">
 			</div>
-			
+
 			<div class="input-field">
 				<label for="home-coach">Headcoach:</label>
 				<input type="text" id="home-coach" data-field-name="HomeHeadcoach">
 			</div>
-			
+
 			<div class="input-field">
 				<label for="topscorer-home">Topskorer:</label>
 				<select id="topscorer-home" data-field-name="HomeTopscorer">
 				</select>
 			</div>
 
-			<div class="roster" id="roster-home">
-				<!--
-				<div class="roster-tr" data-player-id="1">
-					<div class="roster-td number">17</div>
-					<div class="roster-td name">Adrian Uhr</div>
-					<div class="roster-td actions">Actions</div>
+			<div class="input-field">
+				<label for="color-home">Trikot-Farbe:</label>
+				<div class="color-picker" id="color-home">
+					<div class="color-picker-item" id="#00FFFF">&nbsp;</div>
+					<div class="color-picker-item" id="#000000">&nbsp;</div>
+					<div class="color-picker-item" id="#0000FF">&nbsp;</div>
+					<div class="color-picker-item" id="#FF00FF">&nbsp;</div>
+					<div class="color-picker-item" id="#808080">&nbsp;</div>
+					<div class="color-picker-item" id="#008000">&nbsp;</div>
+					<div class="color-picker-item" id="#00FF00">&nbsp;</div>
+					<div class="color-picker-item" id="#800000">&nbsp;</div>
+					<div class="color-picker-item" id="#000080">&nbsp;</div>
+					<div class="color-picker-item" id="#808000">&nbsp;</div>
+					<div class="color-picker-item" id="#800080">&nbsp;</div>
+					<div class="color-picker-item" id="#FF0000">&nbsp;</div>
+					<div class="color-picker-item" id="#C0C0C0">&nbsp;</div>
+					<div class="color-picker-item" id="#008080">&nbsp;</div>
+					<div class="color-picker-item" id="#FFFFFF">&nbsp;</div>
+					<div class="color-picker-item" id="#FFFF00">&nbsp;</div>
 				</div>
-				-->				
+			</div>
+
+			<div class="roster-group">
+				<div class="roster roster-starting-six" id="roster-home-starting-six">
+					<div class="roster-header-fullspan">
+						Starting 6
+					</div>
+					<div class="roster-starting-six-option" id="home-starting-six-line-1">
+						Linie 1
+					</div>
+					<div class="roster-starting-six-option" id="home-starting-six-line-2">
+						Linie 2
+					</div>
+					<div class="roster-starting-six-option" id="home-starting-six-line-3">
+						Linie 3
+					</div>
+					<div class="roster-starting-six-option" id="home-starting-six-line-4">
+						Linie 4
+					</div>
+					<div class="roster-starting-six-option" id="home-starting-six-custom">
+						Manuell
+					</div>
+				</div>
+
+				<div class="roster roster-starting-six-custom" id="roster-home-starting-six-custom">
+					<div class="roster-player">
+						<label for="home-starting-six-tw">Torhüter:</label>
+						<input type="text" id="home-starting-six-tw" />
+					</div>
+					<div class="roster-player">
+						<label for="home-starting-six-dl">Verteidiger links:</label>
+						<input type="text" id="home-starting-six-dl" />
+					</div>
+					<div class="roster-player">
+						<label for="home-starting-six-dr">Verteidiger rechts:</label>
+						<input type="text" id="home-starting-six-dr" />
+					</div>
+					<div class="roster-player">
+						<label for="home-starting-six-c">Center:</label>
+						<input type="text" id="home-starting-six-c" />
+					</div>
+					<div class="roster-player">
+						<label for="home-starting-six-wl">Flügel links:</label>
+						<input type="text" id="home-starting-six-wl" />
+					</div>
+					<div class="roster-player">
+						<label for="home-starting-six-wr">Flügel rechts:</label>
+						<input type="text" id="home-starting-six-wr" />
+					</div>
+				</div>
+			</div>
+
+			<div class="roster-group">
+				<div class="roster roster-player" id="roster-home">
+					<div class="roster-header">
+						Verteidiger links
+					</div>
+					<div class="roster-header">
+						Verteidiger rechts
+					</div>
+					<div class="roster-header">
+						Center
+					</div>
+					<div class="roster-header">
+						Flügel links
+					</div>
+					<div class="roster-header">
+						Flügel rechts
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="home-roster-line-1-dl" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="home-roster-line-1-dr" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="home-roster-line-1-c" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="home-roster-line-1-wl" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="home-roster-line-1-wr" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="home-roster-line-2-dl" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="home-roster-line-2-dr" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="home-roster-line-2-c" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="home-roster-line-2-wl" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="home-roster-line-2-wr" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="home-roster-line-3-dl" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="home-roster-line-3-dr" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="home-roster-line-3-c" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="home-roster-line-3-wl" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="home-roster-line-3-wr" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="home-roster-line-4-dl" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="home-roster-line-4-dr" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="home-roster-line-4-c" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="home-roster-line-4-wl" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="home-roster-line-4-wr" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="roster roster-tw" id="roster-home-tw">
+					<div class="roster-header">
+						Torhüter
+					</div>
+					<div class="roster-header">
+						Ersatz Torhüter
+					</div>
+					<div class="roster-player">
+						<input type="text" id="roster-tw1" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input type="text" id="roster-tw2" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+				</div>
 			</div>
 		</section>
 
@@ -116,31 +341,253 @@
 				<label for="away-team-long">Auswärtsteam lang:</label>
 				<input type="text" id="away-team-long" data-field-name="AwayTeamLong">
 			</div>
-			
+
 			<div class="input-field">
 				<label for="away-team-short">Auswärtsteam kurz:</label>
 				<input type="text" id="away-team-short" data-field-name="AwayTeamShort">
 			</div>
-			
+
 			<div class="input-field">
 				<label for="away-coach">Headcoach:</label>
 				<input type="text" id="away-coach" data-field-name="AwayHeadcoach">
 			</div>
-			
+
 			<div class="input-field">
 				<label for="topscorer-away">Topskorer:</label>
 				<select id="topscorer-away" data-field-name="AwayTopscorer">
 				</select>
 			</div>
-			
-			<div class="roster" id="roster-away">
-				<!--
-				<div class="roster-tr" data-player-id="1">
-					<div class="roster-td number">17</div>
-					<div class="roster-td name">Adrian Uhr</div>
-					<div class="roster-td actions">Actions</div>
+
+			<div class="input-field">
+				<label for="color-home">Trikot-Farbe:</label>
+				<div class="color-picker" id="color-home">
+					<div class="color-picker-item" id="#00FFFF">&nbsp;</div>
+					<div class="color-picker-item" id="#000000">&nbsp;</div>
+					<div class="color-picker-item" id="#0000FF">&nbsp;</div>
+					<div class="color-picker-item" id="#FF00FF">&nbsp;</div>
+					<div class="color-picker-item" id="#808080">&nbsp;</div>
+					<div class="color-picker-item" id="#008000">&nbsp;</div>
+					<div class="color-picker-item" id="#00FF00">&nbsp;</div>
+					<div class="color-picker-item" id="#800000">&nbsp;</div>
+					<div class="color-picker-item" id="#000080">&nbsp;</div>
+					<div class="color-picker-item" id="#808000">&nbsp;</div>
+					<div class="color-picker-item" id="#800080">&nbsp;</div>
+					<div class="color-picker-item" id="#FF0000">&nbsp;</div>
+					<div class="color-picker-item" id="#C0C0C0">&nbsp;</div>
+					<div class="color-picker-item" id="#008080">&nbsp;</div>
+					<div class="color-picker-item" id="#FFFFFF">&nbsp;</div>
+					<div class="color-picker-item" id="#FFFF00">&nbsp;</div>
 				</div>
-				-->
+			</div>
+
+			<div class="roster-group">
+				<div class="roster roster-starting-six" id="roster-away-starting-six">
+					<div class="roster-header-fullspan">
+						Starting 6
+					</div>
+					<div class="roster-starting-six-option" id="away-starting-six-line-1">
+						Linie 1
+					</div>
+					<div class="roster-starting-six-option" id="away-starting-six-line-2">
+						Linie 2
+					</div>
+					<div class="roster-starting-six-option" id="away-starting-six-line-3">
+						Linie 3
+					</div>
+					<div class="roster-starting-six-option" id="away-starting-six-line-4">
+						Linie 4
+					</div>
+					<div class="roster-starting-six-option" id="away-starting-six-custom">
+						Manuell
+					</div>
+				</div>
+
+				<div class="roster roster-starting-six-custom" id="roster-away-starting-six-custom">
+					<div class="roster-player">
+						<label for="away-starting-six-tw">Torhüter:</label>
+						<input type="text" id="away-starting-six-tw" />
+					</div>
+					<div class="roster-player">
+						<label for="away-starting-six-dl">Verteidiger links:</label>
+						<input type="text" id="away-starting-six-dl" />
+					</div>
+					<div class="roster-player">
+						<label for="away-starting-six-dr">Verteidiger rechts:</label>
+						<input type="text" id="away-starting-six-dr" />
+					</div>
+					<div class="roster-player">
+						<label for="away-starting-six-c">Center:</label>
+						<input type="text" id="away-starting-six-c" />
+					</div>
+					<div class="roster-player">
+						<label for="away-starting-six-wl">Flügel links:</label>
+						<input type="text" id="away-starting-six-wl" />
+					</div>
+					<div class="roster-player">
+						<label for="away-starting-six-wr">Flügel rechts:</label>
+						<input type="text" id="away-starting-six-wr" />
+					</div>
+				</div>
+			</div>
+
+			<div class="roster-group">
+				<div class="roster roster-player" id="roster-away">
+					<div class="roster-header">
+						Verteidiger links
+					</div>
+					<div class="roster-header">
+						Verteidiger rechts
+					</div>
+					<div class="roster-header">
+						Center
+					</div>
+					<div class="roster-header">
+						Flügel links
+					</div>
+					<div class="roster-header">
+						Flügel rechts
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="away-roster-line-1-dl" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="away-roster-line-1-dr" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="away-roster-line-1-c" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="away-roster-line-1-wl" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="away-roster-line-1-wr" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="away-roster-line-2-dl" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="away-roster-line-2-dr" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="away-roster-line-2-c" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="away-roster-line-2-wl" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="away-roster-line-2-wr" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="away-roster-line-3-dl" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="away-roster-line-3-dr" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="away-roster-line-3-c" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="away-roster-line-3-wl" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="away-roster-line-3-wr" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="away-roster-line-4-dl" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="away-roster-line-4-dr" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="away-roster-line-4-c" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="away-roster-line-4-wl" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input class="roster-player-number" type="text" id="away-roster-line-4-wr" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+				</div>
+				<div class="roster roster-tw" id="roster-away-tw">
+					<div class="roster-header">
+						Torhüter
+					</div>
+					<div class="roster-header">
+						Ersatz Torhüter
+					</div>
+					<div class="roster-player">
+						<input type="text" id="roster-tw1" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+					<div class="roster-player">
+						<input type="text" id="roster-tw2" />
+						<select class="roster-player-name" tabindex="-1">
+							<option value="0">-- Nicht gesetzt --</option>
+						</select>
+					</div>
+				</div>
 			</div>
 		</section>
 		<div id="show-download-url" style="display: none;">
@@ -149,7 +596,9 @@
 				<p>
 					<a href="http://localhost/TCUconfig/output/game-config.txt" target="_blank" download id="game-settings-download-link">http://localhost/TCUconfig/output/game-config.txt</a>
 				</p>
-				<p><input type="button" id="close-download-page" value="Schliessen"></p>
+				<p>
+					<input type="button" id="close-download-page" value="Schliessen">
+				</p>
 			</div>
 		</div>
 	</main>
@@ -164,4 +613,5 @@
 	<script type="text/javascript" src="game-settings.js"></script>
 	<script type="text/javascript" src="../../init.js"></script>
 </body>
+
 </html>

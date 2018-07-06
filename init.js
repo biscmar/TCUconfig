@@ -1,131 +1,146 @@
 // Globaler Click-EventHandler für die Navigation registrieren
-$('body').on('click', 'li', function() {
-	$('section').hide();
-	$('#' +	$(this).attr('data-section-id')).show();
-	$('li').removeClass('active');
-	$(this).addClass('active');
+$("body").on("click", "li", function() {
+    $("section").hide();
+    $("#" + $(this).attr("data-section-id")).show();
+    $("li").removeClass("active");
+    $(this).addClass("active");
 });
 
 // Globaler Click-EventHandler für die Buttons registrieren
-$('body').on('click', 'input[type="button"]', function() {
-	
-	switch($(this).attr('id')) {
-		case 'return-to-menu':
-			document.location.href = '../../index.html';
-			break;
+$("body").on("click", 'input[type="button"]', function() {
+    switch ($(this).attr("id")) {
+        case "return-to-menu":
+            document.location.href = "../../index.html";
+            break;
 
-		case 'show-game-settings-page':
-			document.location.href = 'modules/game-settings/game-settings.html';
-			break;
+        case "show-game-settings-page":
+            document.location.href = "modules/game-settings/game-settings.html";
+            break;
 
-		case 'show-local-settings-page':
-			document.location.href = 'modules/local-settings/local-settings.html';
-			break;
+        case "show-local-settings-page":
+            document.location.href =
+                "modules/local-settings/local-settings.html";
+            break;
 
-		case 'init-game-btn':
-			initGame($('#input-game-id').val());
-			break;
+        case "init-game-btn":
+            initGame($("#input-game-id").val());
+            break;
 
-		case 'preview-game-settings':
-			downloadGameSettings('preview');
-			break;
+        case "preview-game-settings":
+            downloadGameSettings("preview");
+            break;
 
-		case 'download-game-settings':
-			downloadGameSettings('download');
-			break;
+        case "download-game-settings":
+            downloadGameSettings("download");
+            break;
 
-		case 'preview-local-settings':
-			downloadLocalSettings('preview');
-			break;
+        case "preview-local-settings":
+            downloadLocalSettings("preview");
+            break;
 
-		case 'download-local-settings':
-			downloadLocalSettings('download');
-			break;
-		
-		case 'load-local-settings-template':
-			loadLocalSettingsTemplate();
-			break;
+        case "download-local-settings":
+            downloadLocalSettings("download");
+            break;
 
-		case 'close-download-page':
-			$('#show-download-url').hide();
-			break;
+        case "load-local-settings-template":
+            loadLocalSettingsTemplate();
+            break;
 
-		case 'load-local-settings-btn':
-			loadLocalSettings();
-			break;
+        case "close-download-page":
+            $("#show-download-url").hide();
+            break;
 
-		default:
-			console.log('Button "' + $(this).attr('id') + '" ausgewählt.')
-	}
+        case "load-local-settings-btn":
+            loadLocalSettings();
+            break;
 
+        default:
+            console.log('Button "' + $(this).attr("id") + '" ausgewählt.');
+    }
 });
 
-// Globaler Click-EventHandler auf alle "Actions" registrieren
-$('body').on('click', '.action', function() {
-	switch($(this).data('action')) {
-		case 'addToStartingSix':
-			showRosterActionOverlay($(this).closest('.roster-tr').attr('data-player-id'));
-			break;
-			
-		case 'startingSixSymbolOne':
-			if ($(this).parent().hasClass('roster-td')) {
-				showRosterActionOverlay($(this).closest('.roster-tr').attr('data-player-id'));
-			} else {
-				changeStartingSixPosition('startingSixSymbolOne', $(this).parent().prev().attr('data-player-id'));
-			}
-			break;
-			
-		case 'startingSixSymbolTwo':
-			if ($(this).parent().hasClass('roster-td')) {
-				showRosterActionOverlay($(this).closest('.roster-tr').attr('data-player-id'));
-			} else {
-				changeStartingSixPosition('startingSixSymbolTwo', $(this).parent().prev().attr('data-player-id'));
-			}
-			break;
-			
-		case 'startingSixSymbolThree':
-			if ($(this).parent().hasClass('roster-td')) {
-				showRosterActionOverlay($(this).closest('.roster-tr').attr('data-player-id'));
-			} else {
-				changeStartingSixPosition('startingSixSymbolThree', $(this).parent().prev().attr('data-player-id'));
-			}
-			break;
-			
-		case 'startingSixSymbolFour':
-			if ($(this).parent().hasClass('roster-td')) {
-				showRosterActionOverlay($(this).closest('.roster-tr').attr('data-player-id'));
-			} else {
-				changeStartingSixPosition('startingSixSymbolFour', $(this).parent().prev().attr('data-player-id'));
-			}
-			break;
-			
-		case 'startingSixSymbolFive':
-			if ($(this).parent().hasClass('roster-td')) {
-				showRosterActionOverlay($(this).closest('.roster-tr').attr('data-player-id'));
-			} else {
-				changeStartingSixPosition('startingSixSymbolFive', $(this).parent().prev().attr('data-player-id'));
-			}
-			break;
+// Globaler Click-EventHandler auf Starting Six Options registrieren
+$("body").on("click", ".roster-starting-six-option", function() {
+    switch (
+        $(this)
+            .parent()
+            .attr("id")
+    ) {
+        case "roster-home-starting-six":
+            $("#roster-home-starting-six-custom").hide();
+            $("#roster-home-starting-six")
+                .children()
+                .removeClass("starting-six-option-selected");
 
-		case 'startingSixSymbolSix':
-			if ($(this).parent().hasClass('roster-td')) {
-				showRosterActionOverlay($(this).closest('.roster-tr').attr('data-player-id'));
-			} else {
-				changeStartingSixPosition('startingSixSymbolSix', $(this).parent().prev().attr('data-player-id'));
-			}
-			break;
+            $(this).addClass("starting-six-option-selected");
 
-		case 'removeFromStartingSix':
-			changeStartingSixPosition('addToStartingSix', $(this).parent().prev().attr('data-player-id'));
-			break;
+            if ($(this).attr("id") == "home-starting-six-custom") {
+                $("#roster-home-starting-six-custom")
+                    .show()
+                    .css("display", "grid");
+            }
+            break;
 
-		case 'removePlayer':
-			$(this).closest('.roster-tr').remove();
-			$('#roster-home').find('.roster-tr:odd').css('background-color', '#e9f1f0');
-			$('#roster-home').find('.roster-tr:even').css('background-color', '#fff');
-			break;
+        case "roster-away-starting-six":
+            $("#roster-away-starting-six-custom").hide();
+            $("#roster-away-starting-six")
+                .children()
+                .removeClass("starting-six-option-selected");
 
-		default:
-			console.log('Action triggered.');
-	}
+            $(this).addClass("starting-six-option-selected");
+
+            if ($(this).attr("id") == "away-starting-six-custom") {
+                $("#roster-away-starting-six-custom")
+                    .show()
+                    .css("display", "grid");
+            }
+            break;
+
+        default:
+            console.log("Unbekante roster-starting-six-option");
+    }
+});
+
+// Globaler Click-EventHandler auf Color Picker registrieren
+$("body").on("click", ".color-picker-item", function() {
+    $(this)
+        .parent()
+        .find(".color-picker-item")
+        .removeClass("selected");
+
+    $(this).addClass('selected');
+});
+
+// Globaler Focusout-EventHandler auf Roster Player Number registrieren
+$("body").on("focusout", ".roster-player-number", function() {
+    if ($(this).val() === "") {
+        $(this)
+            .parent()
+            .find("select")
+            .val(0)
+            .change();
+    } else {
+        $(this)
+            .parent()
+            .find("select")
+            .val($(this).val())
+            .change();
+    }
+});
+
+// Globaler Focusout-EventHandler auf Roster Player Name registrieren
+$("body").on("change", ".roster-player-name", function() {
+    if ($(this).val() == 0) {
+        $(this)
+            .parent()
+            .find("input")
+            .val("")
+            .change();
+    } else {
+        $(this)
+            .parent()
+            .find("input")
+            .val($(this).val())
+            .change();
+    }
 });

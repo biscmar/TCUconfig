@@ -1,5 +1,5 @@
 body {
-	font-family: museo_sans,Helvetica,Arial,sans-serif;
+    font-family: museo_sans, Helvetica, Arial, sans-serif;
     font-weight: 100;
     color: #000;
     font-size: 16px;
@@ -7,8 +7,10 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-header, main, footer {
-    width: 900px;
+header,
+main,
+footer {
+    width: 1300px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -22,7 +24,7 @@ article {
 }
 
 h1 {
-	font-weight: 100;
+    font-weight: 100;
     font-size: 44px;
     margin-bottom: 20px;
     letter-spacing: 2px;
@@ -59,22 +61,17 @@ input[type="button"] {
 }
 
 footer input {
-	margin-top: 20px;
-	margin-left: 20px;
-	margin-right: 0px;
-}
-
-select {
-    padding: 5px 10px;
-    width: 375px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 0px;
 }
 
 a {
-	text-decoration: none;
+    text-decoration: none;
 }
 
 nav {
-	margin: 20px 0px;
+    margin: 20px 0px;
 }
 
 ul {
@@ -83,7 +80,7 @@ ul {
 }
 
 li {
-	display: inline;
+    display: inline;
     padding: 10px 20px;
     border: 1px solid #ccc;
     font-size: larger;
@@ -91,14 +88,15 @@ li {
     cursor: pointer;
 }
 
-li.active, li:hover {
+li.active,
+li:hover {
     color: #ee3124;
 }
 
 section {
     border: 1px solid #ccc;
     padding: 0px 15px;
-    width: 830px;
+    width: 1280px;
 }
 
 #init-game {
@@ -110,12 +108,17 @@ section {
     padding: 10px;
 }
 
+.input-field select {
+    padding: 5px 10px;
+    width: 375px;
+}
+
 .input-field {
-	margin: 10px 0px;
+    margin: 10px 0px;
 }
 
 .input-field label {
-	width: 230px;
+    width: 230px;
     display: inline-block;
 }
 
@@ -125,54 +128,117 @@ section {
 }
 
 .input-field input#game-id {
-	color: #ccc;
+    color: #ccc;
 }
 
 .multiline-field {
-	margin: 10px 0px;
+    margin: 10px 0px;
 }
 
 .multiline-field label {
-	width: 230px;
+    width: 230px;
     display: inline-block;
 }
 
 .multiline-field input {
-	padding: 5px 10px;
+    padding: 5px 10px;
 }
 
-.roster {
-    display: table;
-    width: 425px;
-    border: 1px solid;
-    padding: 5px 0px;
-    margin: 20px 0px;
+.color-picker {
+    width: 480px;
+    display: inline-block;
 }
 
-.roster-tr {
-	display: table-row;
-}
-
-.roster-td {
-	display: table-cell;
-	padding: 3px 10px;
-    vertical-align: middle;
-}
-
-img.action {
+.color-picker-item {
+    width: 20px;
     height: 20px;
+    border: 1px solid;
+    display: inline-block;
+    margin-right: 3px;
     cursor: pointer;
 }
 
-#roster-action-overlay {
-    border: 1px solid #ccc;
-    z-index: 2;
-    display: block;
-    position: absolute;
-    background: #fff;
-    margin-left: 250px;
-    height: 20px;
+.selected {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADKSURBVDhPY6AaOPbomNCpF6eUcGGQPFQpKjj+9GTfiWcn/xPET0/0QrVAAMhErApx4MMPDwtCtTIwnHl6Rg6bImS85e7W/0eeHAOzQeqhWglrXn974/+QTRH/J52bCuYTrXnD7U1gjVVH6v4ff3oCLIZV8/FnJ/7XH2v8v/TaMpwacWoG4c7T3f/9N4T8n3h2MlaNeDWDMMgAn/UB/6uP1GJoBGG8mkF44dXFWDWCMIpmiuIZBEApB5tCDPz0RA9UCyogO22TDhgYAENc79zUfEUqAAAAAElFTkSuQmCC");
+    background-repeat: no-repeat;
+    background-position: center;
+    border-color: #ee3124;
+}
+
+.roster-group {
+    border-top: 1px solid;
+    margin-top: 40px;
+}
+
+.roster {
+    display: grid;
+    margin: 20px 0px;
+    grid-row-gap: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.roster-starting-six {
+    width: 60%;
+    grid-template-columns: auto auto auto auto auto;
+    grid-column-gap: 10px;
+}
+
+.roster-header-fullspan {
+    text-align: center;
+    font-weight: bold;
+    grid-column: span 5;
+}
+
+.roster-starting-six-option {
+    border: 1px solid;
+    text-align: center;
     padding: 10px;
+    cursor: pointer;
+}
+
+.starting-six-option-selected {
+    border-color: black;
+    color: white;
+    background-color: #ee3124;
+}
+
+.roster-starting-six-custom {
+    display: none;
+    width: 75%;
+    grid-template-columns: auto auto auto auto auto auto;
+}
+
+.roster-player {
+    width: 100%;
+    grid-template-columns: auto auto auto auto auto;
+}
+
+.roster-tw {
+    width: 40%;
+    grid-template-columns: auto auto;
+}
+
+.roster-header {
+    text-align: center;
+    font-weight: bold;
+}
+
+.roster-player input {
+    padding: 5px 10px;
+    width: 16px;
+}
+
+.roster-player select {
+    padding: 5px 10px;
+    width: 200px;
+}
+
+.roster-player img {
+    padding: 5px 10px;
+    width: 150px;
+    height: 20px;
+    cursor: pointer;
 }
 
 #show-download-url {

@@ -13,9 +13,7 @@ function initGame(gameId) {
 
             // Section "Game"
             $("#game-id").val(game.id);
-            $("#game-title").val(
-                "Meisterschaft NLA | Runde X | Saison 2017/2018"
-            );
+            $("#game-title").val("Meisterschaft NLA | Runde X | Saison 2017/2018");
 
             var date = game.attrs.starts_at.split("T")[0].split("-");
             $("#game-date").val(date[2] + "." + date[1] + "." + date[0]);
@@ -26,9 +24,7 @@ function initGame(gameId) {
             var gymReference = game.attrs.gym;
             var locationReference = references[gymReference].attrs.address;
             $("#game-location").val(
-                references[gymReference].attrs.name +
-                    ", " +
-                    references[locationReference].attrs.location
+                references[gymReference].attrs.name + ", " + references[locationReference].attrs.location
             );
 
             $("#game-ref-1").val(
@@ -98,20 +94,103 @@ function parseRoster(lineUpList, references, team) {
 }
 
 function getRosterList(team) {
-    var rosterList = new Object();
-    $("#roster-" + team)
-        .find('div[class="roster-tr"]')
+    var rosterList = {
+        startingSix: null,
+        line1: null,
+        line2: null,
+        line3: null,
+        line4: null,
+        goal: null,
+        roster: []
+    };
+
+    if ($("#roster-" + team + "-starting-six").find(".starting-six-option-selected").length == 1) {
+        switch (
+            $("#roster-" + team + "-starting-six")
+                .find(".starting-six-option-selected")
+                .first()
+                .attr("id")
+        ) {
+            case team + "-starting-six-line-1":
+                var lineList = getLine(team, "line-1");
+                rosterList.startingSix = $("#" + team + "-roster-tw1").val();
+                rosterList.startingSix += "," + lineList;
+                break;
+
+            case team + "-starting-six-line-2":
+                var lineList = getLine(team, "line-2");
+                rosterList.startingSix = $("#" + team + "-roster-tw1").val();
+                rosterList.startingSix += "," + lineList;
+                break;
+
+            case team + "-starting-six-line-3":
+                var lineList = getLine(team, "line-3");
+                rosterList.startingSix = $("#" + team + "-roster-tw1").val();
+                rosterList.startingSix += "," + lineList;
+                break;
+
+            case team + "-starting-six-line-4":
+                var lineList = getLine(team, "line-4");
+                rosterList.startingSix = $("#" + team + "-roster-tw1").val();
+                rosterList.startingSix += "," + lineList;
+                break;
+
+            case team + "-starting-six-custom":
+                rosterList.startingSix = $("#" + team + "-starting-six-tw").val();
+                rosterList.startingSix += "," + $("#" + team + "-starting-six-dl").val();
+                rosterList.startingSix += "," + $("#" + team + "-starting-six-dr").val();
+                rosterList.startingSix += "," + $("#" + team + "-starting-six-c").val();
+                rosterList.startingSix += "," + $("#" + team + "-starting-six-wl").val();
+                rosterList.startingSix += "," + $("#" + team + "-starting-six-wr").val();
+                break;
+
+            default:
+                console.log("Ungültige Starting Six Option");
+        }
+    } else {
+        console.log("Keine Starting Six Option ausgewählt");
+    }
+
+    rosterList.line1 = getLine(team, "line-1");
+    rosterList.line2 = getLine(team, "line-2");
+    rosterList.line3 = getLine(team, "line-3");
+    rosterList.line4 = getLine(team, "line-4");
+
+    rosterList.goal = $("#" + team + "-roster-tw1").val();
+    rosterList.goal += "," + $("#" + team + "-roster-tw2").val();
+
+    $("#roster-" + team + ", #roster-" + team + "-tw")
+        .find(".roster-player")
         .each(function() {
             var number = $(this)
-                .find('div[class="roster-td number"]')
-                .text();
+                .find(".roster-player-number")
+                .first()
+                .val();
+
             var name = $(this)
-                .find('div[class="roster-td name"]')
+                .find(".roster-player-name")
+                .find("option:selected")
                 .text();
-            rosterList[number] = name;
+
+            if (number != 0 || number != "") {
+                rosterList.roster[number] = name;
+            }
         });
-    rosterList["00"] = $("#topscorer-" + team).val();
+
+    rosterList.roster["00"] = $("#topscorer-" + team).val();
+
     return rosterList;
+}
+
+function getLine(team, line) {
+    var lineList = null;
+    lineList = $("#" + team + "-roster-" + line + "-dl").val();
+    lineList += "," + $("#" + team + "-roster-" + line + "-dr").val();
+    lineList += "," + $("#" + team + "-roster-" + line + "-c").val();
+    lineList += "," + $("#" + team + "-roster-" + line + "-wl").val();
+    lineList += "," + $("#" + team + "-roster-" + line + "-wr").val();
+
+    return lineList;
 }
 
 function downloadGameSettings(mode) {
@@ -119,17 +198,18 @@ function downloadGameSettings(mode) {
         HomeTeamLong: $("#home-team-long").val(),
         HomeTeamShort: $("#home-team-short").val(),
         HomeHeadcoach: $("#home-coach").val(),
-        HomeStarting6: getStartingSix("home"),
+        HomeColor: $('#color-home').find('.selected').attr('id'),
         HomeTeamLineup: getRosterList("home")
     };
-
+    
     var awayTeamData = {
         AwayTeamLong: $("#away-team-long").val(),
         AwayTeamShort: $("#away-team-short").val(),
         AwayHeadcoach: $("#away-coach").val(),
-        AwayStarting6: getStartingSix("away"),
+        AwayColor: $('#color-away').find('.selected').attr('id'),
         AwayTeamLineup: getRosterList("away")
     };
+    console.log(awayTeamData);
 
     $.ajax({
         type: "POST",
@@ -152,11 +232,7 @@ function downloadGameSettings(mode) {
 
             switch (mode) {
                 case "preview":
-                    window.open(
-                        "../file-handler/SettingsPreview.php?file=" +
-                            outputFile.file,
-                        "_blank"
-                    );
+                    window.open("../file-handler/SettingsPreview.php?file=" + outputFile.file, "_blank");
                     break;
 
                 case "download":

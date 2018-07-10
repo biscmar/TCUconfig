@@ -58,7 +58,14 @@ function initGame(gameId) {
 }
 
 function parseRoster(lineUpList, references, team) {
-    $("#topscorer-" + team).empty();
+    $("#topscorer-" + team)
+        .empty()
+        .append(
+            $("<option>", {
+                value: "nicht_gesetzt"
+            }).text("-- Nicht gesetzt --")
+        );
+
     $("#roster-" + team + ", #roster-" + team + "-tw")
         .find("select")
         .empty()
@@ -101,6 +108,7 @@ function getRosterList(team) {
         line3: null,
         line4: null,
         goal: null,
+        ts: null,
         roster: []
     };
 
@@ -147,17 +155,15 @@ function getRosterList(team) {
             default:
                 console.log("Ungültige Starting Six Option");
         }
-    } else {
-        console.log("Keine Starting Six Option ausgewählt");
     }
 
     rosterList.line1 = getLine(team, "line-1");
     rosterList.line2 = getLine(team, "line-2");
     rosterList.line3 = getLine(team, "line-3");
     rosterList.line4 = getLine(team, "line-4");
-
     rosterList.goal = $("#" + team + "-roster-tw1").val();
     rosterList.goal += "," + $("#" + team + "-roster-tw2").val();
+    rosterList.ts = $("#topscorer-" + team).val();
 
     $("#roster-" + team + ", #roster-" + team + "-tw")
         .find(".roster-player")
@@ -177,8 +183,6 @@ function getRosterList(team) {
             }
         });
 
-    rosterList.roster["00"] = $("#topscorer-" + team).val();
-
     return rosterList;
 }
 
@@ -194,56 +198,113 @@ function getLine(team, line) {
 }
 
 function downloadGameSettings(mode) {
-    var homeTeamData = {
-        HomeTeamLong: $("#home-team-long").val(),
-        HomeTeamShort: $("#home-team-short").val(),
-        HomeHeadcoach: $("#home-coach").val(),
-        HomeColor: $('#color-home').find('.selected').attr('id'),
-        HomeTeamLineup: getRosterList("home")
-    };
-    
-    var awayTeamData = {
-        AwayTeamLong: $("#away-team-long").val(),
-        AwayTeamShort: $("#away-team-short").val(),
-        AwayHeadcoach: $("#away-coach").val(),
-        AwayColor: $('#color-away').find('.selected').attr('id'),
-        AwayTeamLineup: getRosterList("away")
-    };
-    console.log(awayTeamData);
+    if (validateGameSettingsData()) {
+        var homeTeamData = {
+            HomeTeamLong: $("#home-team-long").val(),
+            HomeTeamShort: $("#home-team-short").val(),
+            HomeHeadcoach: $("#home-coach").val(),
+            HomeColor: $("#color-home")
+                .find(".selected")
+                .attr("id"),
+            HomeTeamLineup: getRosterList("home")
+        };
 
-    $.ajax({
-        type: "POST",
-        url: "../file-handler/GameSettings.php",
-        data: {
-            GameNr: $("#game-id").val(),
-            Title: $("#game-title").val(),
-            Date: $("#game-date").val(),
-            Time: $("#game-time").val(),
-            Location: $("#game-location").val(),
-            Referee1: $("#game-ref-1").val(),
-            Referee2: $("#game-ref-2").val(),
-            Commentator1: $("#game-com-1").val(),
-            Commentator2: $("#game-com-2").val(),
-            HomeTeamData: homeTeamData,
-            AwayTeamData: awayTeamData
-        },
-        success: function(r) {
-            var outputFile = JSON.parse(r);
+        var awayTeamData = {
+            AwayTeamLong: $("#away-team-long").val(),
+            AwayTeamShort: $("#away-team-short").val(),
+            AwayHeadcoach: $("#away-coach").val(),
+            AwayColor: $("#color-away")
+                .find(".selected")
+                .attr("id"),
+            AwayTeamLineup: getRosterList("away")
+        };
 
-            switch (mode) {
-                case "preview":
-                    window.open("../file-handler/SettingsPreview.php?file=" + outputFile.file, "_blank");
-                    break;
+        $.ajax({
+            type: "POST",
+            url: "../file-handler/GameSettings.php",
+            data: {
+                GameNr: $("#game-id").val(),
+                Title: $("#game-title").val(),
+                Date: $("#game-date").val(),
+                Time: $("#game-time").val(),
+                Location: $("#game-location").val(),
+                Referee1: $("#game-ref-1").val(),
+                Referee2: $("#game-ref-2").val(),
+                Commentator1: $("#game-com-1").val(),
+                Commentator2: $("#game-com-2").val(),
+                HomeTeamData: homeTeamData,
+                AwayTeamData: awayTeamData,
+                OutputDirectory: Config.outputDirectory
+            },
+            success: function(r) {
+                var outputFile = JSON.parse(r);
 
-                case "download":
-                    $("#game-settings-download-link").attr(
-                        "href",
-                        outputFile.protocol + outputFile.path + outputFile.file
-                    );
-                    $("#game-settings-download-link").text(outputFile.file);
-                    $("#show-download-url").show();
-                    break;
+                switch (mode) {
+                    case "preview":
+                        window.open("../file-handler/SettingsPreview.php?file=" + outputFile.file, "_blank");
+                        break;
+
+                    case "download":
+                        $("#game-settings-download-link").attr(
+                            "href",
+                            outputFile.protocol + outputFile.path + outputFile.file
+                        );
+                        $("#game-settings-download-link").text(outputFile.file);
+                        $("#show-download-url").show();
+                        break;
+                }
             }
-        }
-    });
+        });
+    }
+}
+
+function validateGameSettingsData() {
+    var errMsgList = [];
+
+    // Trickot-Farbe
+    if ($("#color-home").find(".selected").attr("id") == null) {
+        errMsgList.push("Heimteam: Keine Trickot-Farbe ausgewählt");
+    }
+
+    if ($("#color-away").find(".selected").attr("id") == null) {
+        errMsgList.push("Auswärtsteam: Keine Trickot-Farbe ausgewählt");
+    }
+
+    if ($("#color-away").find(".selected").attr("id") == $("#color-home").find(".selected").attr("id")) {
+        errMsgList.push("Heimteam und Auswärtsteam haben die selbe Trickot-Farbe");
+    }
+
+    // Starting Six Option
+    if ($("#roster-home-starting-six").find(".starting-six-option-selected").length == 0) {
+        errMsgList.push("Heimteam: Keine Starting Six Option ausgewählt");
+    }
+
+    if ($("#roster-away-starting-six").find(".starting-six-option-selected").length == 0) {
+        errMsgList.push("Auswärtsteam: Keine Starting Six Option ausgewählt");
+    }
+
+    // Topskorer
+    if ($("#topscorer-home").val() == "nicht_gesetzt") {
+        errMsgList.push("Heimteam: Kein Topskorer ausgewählt");
+    }
+
+    if ($("#topscorer-away").val() == "nicht_gesetzt") {
+        errMsgList.push("Auswärtsteam: Kein Topskorer ausgewählt");
+    }
+
+    // Aufstellung
+    if (getRosterList("home").roster.length <= 1) {
+        errMsgList.push("Heimteam: Keine Spieler in der Aufstellung");
+    }
+
+    if (getRosterList("away").roster.length <= 1) {
+        errMsgList.push("Auswärtsteam: Keine Spieler in der Aufstellung");
+    }
+
+    if (errMsgList.length != 0) {
+        displayError(errMsgList);
+        return false;
+    } else {
+        return true;
+    }
 }

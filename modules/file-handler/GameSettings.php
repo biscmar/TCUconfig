@@ -17,7 +17,7 @@
 //===================================================================================================================================================
 	
 	$fileSuffix = date('YmdGis');
-	$fileLocation = getenv("DOCUMENT_ROOT") . '/output/game-config_' . $fileSuffix . '.txt';
+	$fileLocation = getenv("DOCUMENT_ROOT") . '/' . $_POST['OutputDirectory'] . '/game-config_' . $fileSuffix . '.txt';
 	$file = fopen($fileLocation, "w");
 
 	// Abschlitt [Game]
@@ -43,6 +43,7 @@
 		}
 	}
 
+	fwrite($file, "00=" . $HomeTeamData['HomeTeamLineup']['ts'] . PHP_EOL);
 	fwrite($file, "TeamLong=" . $HomeTeamData['HomeTeamLong'] . PHP_EOL);
 	fwrite($file, "TeamShort=" . $HomeTeamData['HomeTeamShort'] . PHP_EOL);
 	fwrite($file, "TeamColor=" . $HomeTeamData['HomeColor'] . PHP_EOL);
@@ -65,6 +66,7 @@
 		}
 	}
 
+	fwrite($file, "00=" . $AwayTeamData['AwayTeamLineup']['ts'] . PHP_EOL);
 	fwrite($file, "TeamLong=" . $AwayTeamData['AwayTeamLong'] . PHP_EOL);
 	fwrite($file, "TeamShort=" . $AwayTeamData['AwayTeamShort'] . PHP_EOL);
 	fwrite($file, "TeamColor=" . $AwayTeamData['AwayColor'] . PHP_EOL);
@@ -80,7 +82,7 @@
 	fwrite($file, "[LastLineInConfig]");
 	fclose($file);
 
-	$path = $_SERVER["HTTP_HOST"] . '/output/';
+	$path = $_SERVER["HTTP_HOST"] . '/' . $_POST['OutputDirectory'] . '/';
 	$file = 'game-config_' . $fileSuffix . '.txt';
 
 	if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {

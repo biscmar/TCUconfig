@@ -74,12 +74,12 @@ nav {
     margin: 20px 0px;
 }
 
-ul {
+.subnav {
     margin: 0;
     padding: 0;
 }
 
-li {
+.subnav li {
     display: inline;
     padding: 10px 20px;
     border: 1px solid #ccc;
@@ -88,8 +88,8 @@ li {
     cursor: pointer;
 }
 
-li.active,
-li:hover {
+.subnav > li.active,
+.subnav > li:hover {
     color: #ee3124;
 }
 
@@ -241,7 +241,7 @@ section {
     cursor: pointer;
 }
 
-#show-download-url {
+.overlay {
     position: fixed;
     top: 0;
     right: 0;
@@ -251,12 +251,17 @@ section {
     z-index: 99999;
 }
 
-#show-download-url div {
+.overlay div {
     text-align: center;
-    width: 400px;
+    width: 500px;
     position: relative;
     margin: 20% auto;
     padding: 5px 20px 20px 20px;
     border-radius: 10px;
     background: #fff;
+}
+
+#error-list li {
+    text-align: left;
+    margin: 10px 0px;
 }

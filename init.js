@@ -1,5 +1,5 @@
 // Globaler Click-EventHandler für die Navigation registrieren
-$("body").on("click", "li", function() {
+$("body").on("click", ".subnav li", function() {
     $("section").hide();
     $("#" + $(this).attr("data-section-id")).show();
     $("li").removeClass("active");
@@ -18,8 +18,7 @@ $("body").on("click", 'input[type="button"]', function() {
             break;
 
         case "show-local-settings-page":
-            document.location.href =
-                "modules/local-settings/local-settings.html";
+            document.location.href = "modules/local-settings/local-settings.html";
             break;
 
         case "init-game-btn":
@@ -52,6 +51,10 @@ $("body").on("click", 'input[type="button"]', function() {
 
         case "load-local-settings-btn":
             loadLocalSettings();
+            break;
+
+        case "close-error-page":
+            $("#show-error").hide();
             break;
 
         default:
@@ -108,7 +111,7 @@ $("body").on("click", ".color-picker-item", function() {
         .find(".color-picker-item")
         .removeClass("selected");
 
-    $(this).addClass('selected');
+    $(this).addClass("selected");
 });
 
 // Globaler Focusout-EventHandler auf Roster Player Number registrieren
@@ -144,3 +147,13 @@ $("body").on("change", ".roster-player-name", function() {
             .change();
     }
 });
+
+// Ausgabe von Fehlermeldungen
+function displayError(errMsgList) {
+    errMsgList.forEach(errMsg => {
+        $("#error-list").append("<li>" + errMsg + "</li>");
+    });
+
+    $("#show-error").show();
+    console.log(errMsgList);
+}

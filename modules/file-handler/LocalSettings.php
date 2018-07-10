@@ -19,7 +19,7 @@
 	$ini_preset = parse_ini_file("../../templates/system-config-template.txt", true, INI_SCANNER_RAW);
 	
 	$fileSuffix = date('YmdGis');
-	$fileLocation = getenv("DOCUMENT_ROOT") . '/output/system-config_' . $fileSuffix . '.txt';
+	$fileLocation = getenv("DOCUMENT_ROOT") . '/' . $_POST['OutputDirectory'] . '/system-config_' . $fileSuffix . '.txt';
 	$file = fopen($fileLocation, "w");
 
 	// Abschlitt [General]
@@ -111,7 +111,7 @@
 	fwrite($file, "[LastLineInConfig]");
 	fclose($file);
 
-	$path = $_SERVER["HTTP_HOST"] . '/output/';
+	$path = $_SERVER["HTTP_HOST"] . '/' . $_POST['OutputDirectory'] . '/';
 	$file = 'system-config_' . $fileSuffix . '.txt';
 
 	if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {

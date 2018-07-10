@@ -23,7 +23,7 @@
 
 	<main>
 		<nav>
-			<ul>
+			<ul class="subnav">
 				<li class="active" data-section-id="section-game">Spiel</li>
 				<li data-section-id="section-home">Heimteam</li>
 				<li data-section-id="section-away">Auswärtsteam</li>
@@ -98,6 +98,7 @@
 			<div class="input-field">
 				<label for="topscorer-home">Topskorer:</label>
 				<select id="topscorer-home" data-field-name="HomeTopscorer">
+					<option value="nicht_gesetzt">-- Nicht gesetzt --</option>
 				</select>
 			</div>
 
@@ -355,6 +356,7 @@
 			<div class="input-field">
 				<label for="topscorer-away">Topskorer:</label>
 				<select id="topscorer-away" data-field-name="AwayTopscorer">
+					<option value="nicht_gesetzt">-- Nicht gesetzt --</option>
 				</select>
 			</div>
 
@@ -590,14 +592,23 @@
 				</div>
 			</div>
 		</section>
-		<div id="show-download-url" style="display: none;">
+		<div id="show-download-url" class="overlay" style="display: none;">
 			<div>
 				<p>Die Spiel-Konfiguration wurde erstellt und kann heruntergeladen werden:</p>
 				<p>
-					<a href="http://localhost/TCUconfig/output/game-config.txt" target="_blank" download id="game-settings-download-link">http://localhost/TCUconfig/output/game-config.txt</a>
+					<a href="#" target="_blank" download id="game-settings-download-link">Keine Datei geladen</a>
 				</p>
 				<p>
 					<input type="button" id="close-download-page" value="Schliessen">
+				</p>
+			</div>
+		</div>
+		<div id="show-error" class="overlay" style="display: none;">
+			<div>
+				<p>Es sind Fehler aufgetreten:</p>
+				<ul id="error-list"></ul>
+				<p>
+					<input type="button" id="close-error-page" value="Schliessen">
 				</p>
 			</div>
 		</div>

@@ -191,12 +191,16 @@ function displayError(errMsgList, warnMsgList) {
 
         $("#close-error-page").click(function() {
             $("#show-error").hide();
+            $(".error").hide();
+            $(".warn").hide();
             $("#ignore-warn-page").show();
             resolve(false);
         });
 
         $("#ignore-warn-page").click(function() {
             $("#show-error").hide();
+            $(".error").hide();
+            $(".warn").hide();
             $("#ignore-warn-page").show();
             resolve(true);
         });

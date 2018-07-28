@@ -220,7 +220,9 @@ function getRosterList(team) {
     rosterList.line4 = getLine(team, "line-4");
     rosterList.goal = $("#" + team + "-roster-tw1").val();
     rosterList.goal += "," + $("#" + team + "-roster-tw2").val();
-    rosterList.ts = $("#topscorer-" + team).val();
+
+    var ts = $("#topscorer-" + team).val() == "nicht_gesetzt" ? null : $("#topscorer-" + team).val();
+    rosterList.ts = ts;
 
     $("#roster-" + team + ", #roster-" + team + "-tw")
         .find(".roster-player")
@@ -347,9 +349,15 @@ function validateGameSettingsData() {
             $("#color-away")
                 .find(".selected")
                 .attr("id") ==
+                $("#color-home")
+                    .find(".selected")
+                    .attr("id") &&
             $("#color-home")
                 .find(".selected")
-                .attr("id")
+                .attr("id") != null &&
+            $("#color-away")
+                .find(".selected")
+                .attr("id") != null
         ) {
             warnMsgList.push("Heimteam und Auswärtsteam haben die gleiche Trikot-Farbe");
         }

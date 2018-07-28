@@ -17,6 +17,7 @@ footer {
 
 article {
     width: 598px;
+    height: 150px;
     border: 1px solid #ccc;
     padding: 20px;
     float: left;

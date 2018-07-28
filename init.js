@@ -54,7 +54,11 @@ $("body").on("click", 'input[type="button"]', function() {
             break;
 
         case "close-error-page":
-            $("#show-error").hide();
+            // Wird in displayError abgefangen
+            break;
+
+        case "ignore-warn-page":
+            // Wird in displayError abgefangen
             break;
 
         default:
@@ -123,11 +127,23 @@ $("body").on("focusout", ".roster-player-number", function() {
             .val(0)
             .change();
     } else {
-        $(this)
-            .parent()
-            .find("select")
-            .val($(this).val())
-            .change();
+        if (
+            $(this)
+                .parent()
+                .find("select option[value=" + $(this).val() + "]").length != 0
+        ) {
+            $(this)
+                .parent()
+                .find("select")
+                .val($(this).val())
+                .change();
+        } else {
+            $(this)
+                .parent()
+                .find("select")
+                .val(0)
+                .change();
+        }
     }
 });
 
@@ -149,11 +165,40 @@ $("body").on("change", ".roster-player-name", function() {
 });
 
 // Ausgabe von Fehlermeldungen
-function displayError(errMsgList) {
-    errMsgList.forEach(errMsg => {
-        $("#error-list").append("<li>" + errMsg + "</li>");
-    });
+function displayError(errMsgList, warnMsgList) {
+    return new Promise((resolve, reject) => {
+        $("#error-list").empty();
+        $("#warn-list").empty();
 
-    $("#show-error").show();
-    console.log(errMsgList);
+        if (errMsgList.length != 0) {
+            $(".error").show();
+            $("#ignore-warn-page").hide();
+            console.error("Fehler", errMsgList);
+            errMsgList.forEach(errMsg => {
+                $("#error-list").append("<li>" + errMsg + "</li>");
+            });
+        }
+        
+        if (warnMsgList.length != 0) {
+            $(".warn").show();
+            console.log("Warnungen", warnMsgList);
+            warnMsgList.forEach(warnMsg => {
+                $("#warn-list").append("<li>" + warnMsg + "</li>");
+            });
+        }
+
+        $("#show-error").show();
+
+        $("#close-error-page").click(function() {
+            $("#show-error").hide();
+            $("#ignore-warn-page").show();
+            resolve(false);
+        });
+
+        $("#ignore-warn-page").click(function() {
+            $("#show-error").hide();
+            $("#ignore-warn-page").show();
+            resolve(true);
+        });
+    });
 }

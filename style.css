@@ -253,17 +253,30 @@ section {
     z-index: 99999;
 }
 
-.overlay div {
+.overlay-element {
     text-align: center;
     width: 500px;
     position: relative;
-    margin: 20% auto;
+    margin: 15% auto;
     padding: 5px 20px 20px 20px;
     border-radius: 10px;
     background: #fff;
 }
 
+.overlay-element p {
+    font-weight: bold;
+}
+
+.warn {
+    margin-top: 40px;
+}
+
 #error-list li {
+    text-align: left;
+    margin: 10px 0px;
+}
+
+#warn-list li {
     text-align: left;
     margin: 10px 0px;
 }

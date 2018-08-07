@@ -90,6 +90,11 @@
 				<input type="text" id="home-team-short" data-field-name="HomeTeamShort">
 			</div>
 
+                        <div class="input-field" style="display: none">
+				<label for="home-team-logo">Heimteam Logo:</label>
+				<input type="text" id="home-team-logo" data-field-name="HomeTeamLogo" readonly>
+			</div>
+                    
 			<div class="input-field">
 				<label for="home-coach">Headcoach:</label>
 				<input type="text" id="home-coach" data-field-name="HomeHeadcoach">
@@ -352,6 +357,11 @@
 				<label for="away-team-short">Auswärtsteam kurz:</label>
 				<input type="text" id="away-team-short" data-field-name="AwayTeamShort">
 			</div>
+                    
+                        <div class="input-field" style="display: none">
+				<label for="away-team-logo">Auswärtsteam Logo:</label>
+				<input type="text" id="away-team-logo" data-field-name="AwayTeamLogo" readonly>
+			</div>
 
 			<div class="input-field">
 				<label for="away-coach">Headcoach:</label>
@@ -605,7 +615,7 @@
 		</section>
 		<div id="show-download-url" class="overlay" style="display: none;">
 			<div class="overlay-element">
-				<p>Die Spiel-Konfiguration wurde erstellt und kann heruntergeladen werden:</p>
+				<p id="game-settings-download-text">Text</p>
 				<p>
 					<a href="#" target="_blank" download id="game-settings-download-link">Keine Datei geladen</a>
 				</p>
@@ -636,6 +646,7 @@
 		<input type="button" id="return-to-menu" value="Zurück zur Startseite">
 		<input type="button" id="preview-game-settings" value="Config-File anzeigen">
 		<input type="button" id="download-game-settings" value="Config-File herunterladen">
+                <input type="button" id="download-game-thumbnail" value="Thumbnail herunterladen">
 	</footer>
 
 	<script type="text/javascript" src="../../config.js"></script>

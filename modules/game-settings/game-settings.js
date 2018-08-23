@@ -21,7 +21,7 @@ function initGame(gameId) {
                 // Section "Game"
                 $("#game-id").val(game.id);
 
-                $("#game-title").val("Meisterschaft NLA | Runde X | Saison 2017/2018");
+                $("#game-title").val(Config.gameTitleDefault);
 
                 if (game.attrs.hasOwnProperty("starts_at")) {
                     var date = game.attrs.starts_at.split("T")[0].split("-");
@@ -328,6 +328,11 @@ function validateGameSettingsData() {
         var errMsgList = [];
         var warnMsgList = [];
 
+        // Titelfeld nicht verändert
+        if ($("#game-title").val() == Config.gameTitleDefault) {
+            warnMsgList.push("Das Titel-Feld wurde nicht verändert");
+        }
+        
         // Trikot-Farbe
         if (
             $("#color-home")

@@ -1,6 +1,6 @@
 <?php
 
-    require "../../src/claviska/SimpleImage.php";
+    require "../../lib/SimpleImage.php";
 
 //===================================================================================================================================================
 //  Alte png-Files aus dem Output-Verzeichnis entfernen
@@ -39,11 +39,11 @@
         $away->resize(220);
         
         $image->overlay($home, 'top left', 1, 239, 207);
-	$image->overlay($away, 'top left', 1, 812, 207);
+	$image->overlay($away, 'top left', 1, 819, 207);
         
 	$image->toFile("../../output/game-thumbnail_" . $fileSuffix . ".png", 'image/png');
 
-        $path = $_SERVER["HTTP_HOST"] . '/output/';
+        $path = $_SERVER["HTTP_HOST"] . '/' . $_POST['OutputDirectory'] . '/';
 	$file = 'game-thumbnail_' . $fileSuffix . '.png';
 
 	if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {

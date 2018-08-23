@@ -472,7 +472,8 @@ function downloadGameThumbnail(mode) {
 		Time: $('#game-time').val(),
 		Location: $('#game-location').val(),
 		HomeTeamData: homeTeamData,
-		AwayTeamData: awayTeamData
+		AwayTeamData: awayTeamData,
+                OutputDirectory: Config.outputDirectory
 	},
 	success: function(r) {
 	        var outputFile = JSON.parse(r);

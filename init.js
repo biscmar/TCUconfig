@@ -32,6 +32,10 @@ $("body").on("click", 'input[type="button"]', function() {
         case "download-game-settings":
             downloadGameSettings("download");
             break;
+            
+        case "download-game-thumbnail":
+            downloadGameThumbnail("download");
+            break;
 
         case "preview-local-settings":
             downloadLocalSettings("preview");

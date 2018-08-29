@@ -55,15 +55,17 @@ function initGame(gameId) {
 
                 // Section "Home"
                 var home = references[game.attrs.home_team];
-                $('#home-team-long').val(home.attrs.name);
-                $('#home-team-short').val(home.attrs.streaming_name);
-                parseRoster(game.attrs.lineups[0], references, 'home');
+                $("#home-team-long").val(home.attrs.name);
+                $("#home-team-short").val(home.attrs.streaming_name);
+                $('#home-team-logo').val(home.attrs.logo_url);
+                parseRoster(game.attrs.lineups[0], references, "home");
 
                 // Section "Away"
                 var away = references[game.attrs.away_team];
-                $('#away-team-long').val(away.attrs.name);
-                $('#away-team-short').val(away.attrs.streaming_name);
-                parseRoster(game.attrs.lineups[1], references, 'away');
+                $("#away-team-long").val(away.attrs.name);
+                $("#away-team-short").val(away.attrs.streaming_name);
+                $('#away-team-logo').val(away.attrs.logo_url);
+                parseRoster(game.attrs.lineups[1], references, "away");
             } else {
                 console.error(apiResponse.statuscode);
                 console.error(apiResponse.response);
@@ -359,11 +361,15 @@ async function downloadGameSettings(mode) {
                     case 'preview':
                         window.open('../file-handler/SettingsPreview.php?file=' + outputFile.file, '_blank');
                         break;
-
-                    case 'download':
-                        $('#game-settings-download-link').attr('href', outputFile.protocol + outputFile.path + outputFile.file);
-                        $('#game-settings-download-link').text(outputFile.file);
-                        $('#show-download-url').show();
+                    
+                    case "download":
+                        $("#game-settings-download-link").attr(
+                            "href",
+                            outputFile.protocol + outputFile.path + outputFile.file
+                        );
+                        $("#game-settings-download-link").text(outputFile.file);
+                        $('#game-settings-download-text').text("Die Spiel-Konfiguration wurde erstellt und kann heruntergeladen werden:");
+                        $("#show-download-url").show();
                         break;
                 }
             }
@@ -499,4 +505,47 @@ function validateGameSettingsData() {
             resolve(true);
         }
     });
+}
+
+function downloadGameThumbnail(mode) {
+    var homeTeamData = {
+	HomeTeamLong: $('#home-team-long').val(),
+	HomeTeamLogo: $('#home-team-logo').val(),
+    };
+
+    var awayTeamData = {
+	AwayTeamLong: $('#away-team-long').val(),
+	AwayTeamLogo: $('#away-team-logo').val(),
+    };
+
+    $.ajax({
+	type: 'POST',
+	url: '../file-handler/GameThumbnail.php',
+	data: {
+		GameNr: $('#game-id').val(),
+		Title: $('#game-title').val(),
+		Date: $('#game-date').val(),
+		Time: $('#game-time').val(),
+		Location: $('#game-location').val(),
+		HomeTeamData: homeTeamData,
+		AwayTeamData: awayTeamData,
+                OutputDirectory: Config.outputDirectory
+	},
+	success: function(r) {
+	        var outputFile = JSON.parse(r);
+			
+		switch(mode) {
+		    case 'preview':
+			window.open('../file-handler/SettingsPreview.php?file=' + outputFile.file, '_blank');
+			break;
+
+		    case 'download':
+			$('#game-settings-download-link').attr('href', outputFile.protocol + outputFile.path + outputFile.file);
+			$('#game-settings-download-link').text(outputFile.file);
+                        $('#game-settings-download-text').text("Das Thumbnail wurde erstellt und kann heruntergeladen werden:");
+                        $('#show-download-url').show();
+			break;
+		}
+	}
+    });       
 }

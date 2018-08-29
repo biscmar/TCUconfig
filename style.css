@@ -168,7 +168,7 @@ section {
     border-color: #ee3124;
 }
 
-.roster-group {
+.roster-group, .simple-starting-six {
     border-top: 1px solid;
     margin-top: 40px;
 }

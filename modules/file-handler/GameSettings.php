@@ -49,13 +49,15 @@
 	fwrite($file, "TeamColor=" . $HomeTeamData['HomeColor'] . PHP_EOL);
 	fwrite($file, "Headcoach=" . $HomeTeamData['HomeHeadcoach'] . PHP_EOL);
 	fwrite($file, "Starting6=" . $HomeTeamData['HomeTeamLineup']['startingSix'] . PHP_EOL);
-	fwrite($file, "Line1=" . $HomeTeamData['HomeTeamLineup']['line1'] . PHP_EOL);
-	fwrite($file, "Line2=" . $HomeTeamData['HomeTeamLineup']['line2'] . PHP_EOL);
-	fwrite($file, "Line3=" . $HomeTeamData['HomeTeamLineup']['line3'] . PHP_EOL);
-	fwrite($file, "Line4=" . $HomeTeamData['HomeTeamLineup']['line4'] . PHP_EOL);
-	fwrite($file, "Goal=" . $HomeTeamData['HomeTeamLineup']['goal'] . PHP_EOL . PHP_EOL);
+
+	if ($HomeTeamData['HomeTeamLineup']['line1'] != null) { fwrite($file, "Line1=" . $HomeTeamData['HomeTeamLineup']['line1'] . PHP_EOL); }
+	if ($HomeTeamData['HomeTeamLineup']['line2'] != null) { fwrite($file, "Line2=" . $HomeTeamData['HomeTeamLineup']['line2'] . PHP_EOL); }
+	if ($HomeTeamData['HomeTeamLineup']['line3'] != null) { fwrite($file, "Line3=" . $HomeTeamData['HomeTeamLineup']['line3'] . PHP_EOL); }
+	if ($HomeTeamData['HomeTeamLineup']['line4'] != null) { fwrite($file, "Line4=" . $HomeTeamData['HomeTeamLineup']['line4'] . PHP_EOL); }
+	if ($HomeTeamData['HomeTeamLineup']['goal'] != null) { fwrite($file, "Goal=" . $HomeTeamData['HomeTeamLineup']['goal'] . PHP_EOL); }
 	
 	// Abschlitt [Away]
+	fwrite($file, PHP_EOL);
 	fwrite($file, "[Away]" . PHP_EOL);
 	
 	$AwayTeamData = $_POST['AwayTeamData'];
@@ -72,12 +74,14 @@
 	fwrite($file, "TeamColor=" . $AwayTeamData['AwayColor'] . PHP_EOL);
 	fwrite($file, "Headcoach=" . $AwayTeamData['AwayHeadcoach'] . PHP_EOL);
 	fwrite($file, "Starting6=" . $AwayTeamData['AwayTeamLineup']['startingSix'] . PHP_EOL);
-	fwrite($file, "Line1=" . $AwayTeamData['AwayTeamLineup']['line1'] . PHP_EOL);
-	fwrite($file, "Line2=" . $AwayTeamData['AwayTeamLineup']['line2'] . PHP_EOL);
-	fwrite($file, "Line3=" . $AwayTeamData['AwayTeamLineup']['line3'] . PHP_EOL);
-	fwrite($file, "Line4=" . $AwayTeamData['AwayTeamLineup']['line4'] . PHP_EOL);
-	fwrite($file, "Goal=" . $AwayTeamData['AwayTeamLineup']['goal'] . PHP_EOL . PHP_EOL);
 
+	if ($AwayTeamData['AwayTeamLineup']['line1'] != null) { fwrite($file, "Line1=" . $AwayTeamData['AwayTeamLineup']['line1'] . PHP_EOL); }
+	if ($AwayTeamData['AwayTeamLineup']['line2'] != null) { fwrite($file, "Line2=" . $AwayTeamData['AwayTeamLineup']['line2'] . PHP_EOL); }
+	if ($AwayTeamData['AwayTeamLineup']['line3'] != null) { fwrite($file, "Line3=" . $AwayTeamData['AwayTeamLineup']['line3'] . PHP_EOL); }
+	if ($AwayTeamData['AwayTeamLineup']['line4'] != null) { fwrite($file, "Line4=" . $AwayTeamData['AwayTeamLineup']['line4'] . PHP_EOL); }
+	if ($AwayTeamData['AwayTeamLineup']['goal'] != null) { fwrite($file, "Goal=" . $AwayTeamData['AwayTeamLineup']['goal'] . PHP_EOL); }
+
+	fwrite($file, PHP_EOL);
 	fwrite($file, "[Game-Config]" . PHP_EOL);
 	fwrite($file, "[LastLineInConfig]");
 	fclose($file);

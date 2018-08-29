@@ -55,22 +55,22 @@ function initGame(gameId) {
 
                 // Section "Home"
                 var home = references[game.attrs.home_team];
-                $("#home-team-long").val(home.attrs.name);
-                $("#home-team-short").val(home.attrs.streaming_name);
+                $('#home-team-long').val(home.attrs.name);
+                $('#home-team-short').val(home.attrs.streaming_name);
                 $('#home-team-logo').val(home.attrs.logo_url);
-                parseRoster(game.attrs.lineups[0], references, "home");
+                parseRoster(game.attrs.lineups[0], references, 'home');
 
                 // Section "Away"
                 var away = references[game.attrs.away_team];
-                $("#away-team-long").val(away.attrs.name);
-                $("#away-team-short").val(away.attrs.streaming_name);
+                $('#away-team-long').val(away.attrs.name);
+                $('#away-team-short').val(away.attrs.streaming_name);
                 $('#away-team-logo').val(away.attrs.logo_url);
-                parseRoster(game.attrs.lineups[1], references, "away");
+                parseRoster(game.attrs.lineups[1], references, 'away');
             } else {
                 console.error(apiResponse.statuscode);
                 console.error(apiResponse.response);
                 var errMsgList = ['Die Spieldaten konnten nicht geladen werden. Weitere Infos in der Browser-Konsole.'];
-                displayError(errMsgList);
+                displayError(errMsgList, null);
             }
         }
     });
@@ -144,6 +144,9 @@ function parseRoster(lineUpList, references, team) {
     $(
         '#simple-starting-six-' +
             team +
+            '-tw, ' +
+            '#simple-starting-six-' +
+            team +
             '-dl, ' +
             '#simple-starting-six-' +
             team +
@@ -193,6 +196,9 @@ function parseRoster(lineUpList, references, team) {
         $(
             '#simple-starting-six-' +
                 team +
+                '-tw, ' +
+                '#simple-starting-six-' +
+                team +
                 '-dl, ' +
                 '#simple-starting-six-' +
                 team +
@@ -221,78 +227,100 @@ function getRosterList(team) {
         ts: null,
         roster: {}
     };
+    if ($('#game-roster-choice').val() == 'yes') {
+        if ($('#roster-' + team + '-starting-six').find('.starting-six-option-selected').length == 1) {
+            switch (
+                $('#roster-' + team + '-starting-six')
+                    .find('.starting-six-option-selected')
+                    .first()
+                    .attr('id')
+            ) {
+                case team + '-starting-six-line-1':
+                    var lineList = getLine(team, 'line-1');
+                    rosterList.startingSix = $('#' + team + '-roster-tw1').val();
+                    rosterList.startingSix += ',' + lineList;
+                    break;
 
-    if ($('#roster-' + team + '-starting-six').find('.starting-six-option-selected').length == 1) {
-        switch (
-            $('#roster-' + team + '-starting-six')
-                .find('.starting-six-option-selected')
-                .first()
-                .attr('id')
-        ) {
-            case team + '-starting-six-line-1':
-                var lineList = getLine(team, 'line-1');
-                rosterList.startingSix = $('#' + team + '-roster-tw1').val();
-                rosterList.startingSix += ',' + lineList;
-                break;
+                case team + '-starting-six-line-2':
+                    var lineList = getLine(team, 'line-2');
+                    rosterList.startingSix = $('#' + team + '-roster-tw1').val();
+                    rosterList.startingSix += ',' + lineList;
+                    break;
 
-            case team + '-starting-six-line-2':
-                var lineList = getLine(team, 'line-2');
-                rosterList.startingSix = $('#' + team + '-roster-tw1').val();
-                rosterList.startingSix += ',' + lineList;
-                break;
+                case team + '-starting-six-line-3':
+                    var lineList = getLine(team, 'line-3');
+                    rosterList.startingSix = $('#' + team + '-roster-tw1').val();
+                    rosterList.startingSix += ',' + lineList;
+                    break;
 
-            case team + '-starting-six-line-3':
-                var lineList = getLine(team, 'line-3');
-                rosterList.startingSix = $('#' + team + '-roster-tw1').val();
-                rosterList.startingSix += ',' + lineList;
-                break;
+                case team + '-starting-six-line-4':
+                    var lineList = getLine(team, 'line-4');
+                    rosterList.startingSix = $('#' + team + '-roster-tw1').val();
+                    rosterList.startingSix += ',' + lineList;
+                    break;
 
-            case team + '-starting-six-line-4':
-                var lineList = getLine(team, 'line-4');
-                rosterList.startingSix = $('#' + team + '-roster-tw1').val();
-                rosterList.startingSix += ',' + lineList;
-                break;
+                case team + '-starting-six-custom':
+                    rosterList.startingSix = $('#' + team + '-starting-six-tw').val();
+                    rosterList.startingSix += ',' + $('#' + team + '-starting-six-dl').val();
+                    rosterList.startingSix += ',' + $('#' + team + '-starting-six-dr').val();
+                    rosterList.startingSix += ',' + $('#' + team + '-starting-six-c').val();
+                    rosterList.startingSix += ',' + $('#' + team + '-starting-six-wl').val();
+                    rosterList.startingSix += ',' + $('#' + team + '-starting-six-wr').val();
+                    break;
 
-            case team + '-starting-six-custom':
-                rosterList.startingSix = $('#' + team + '-starting-six-tw').val();
-                rosterList.startingSix += ',' + $('#' + team + '-starting-six-dl').val();
-                rosterList.startingSix += ',' + $('#' + team + '-starting-six-dr').val();
-                rosterList.startingSix += ',' + $('#' + team + '-starting-six-c').val();
-                rosterList.startingSix += ',' + $('#' + team + '-starting-six-wl').val();
-                rosterList.startingSix += ',' + $('#' + team + '-starting-six-wr').val();
-                break;
-
-            default:
-                console.log('Ungültige Starting Six Option');
-        }
-    }
-
-    rosterList.line1 = getLine(team, 'line-1');
-    rosterList.line2 = getLine(team, 'line-2');
-    rosterList.line3 = getLine(team, 'line-3');
-    rosterList.line4 = getLine(team, 'line-4');
-    rosterList.goal = $('#' + team + '-roster-tw1').val();
-    rosterList.goal += ',' + $('#' + team + '-roster-tw2').val();
-
-    var ts = $('#topscorer-' + team).val() == 'nicht_gesetzt' ? null : $('#topscorer-' + team).val();
-    rosterList.ts = ts;
-
-    $('#roster-' + team + ', #roster-' + team + '-tw')
-        .find('.roster-player')
-        .each(function() {
-            var number = $(this)
-                .find('.roster-player-number')
-                .first()
-                .val();
-
-            var name = $(this)
-                .find('.roster-player-name')
-                .find('option:selected')
-                .text();
-            if (number != 0 || number != '') {
-                rosterList.roster[number] = name;
+                default:
+                    console.log('Ungültige Starting Six Option');
             }
-        });
+        }
+
+        rosterList.line1 = getLine(team, 'line-1');
+        rosterList.line2 = getLine(team, 'line-2');
+        rosterList.line3 = getLine(team, 'line-3');
+        rosterList.line4 = getLine(team, 'line-4');
+        rosterList.goal = $('#' + team + '-roster-tw1').val();
+        rosterList.goal += ',' + $('#' + team + '-roster-tw2').val();
+
+        var ts = $('#topscorer-' + team).val() == 'nicht_gesetzt' ? null : $('#topscorer-' + team).val();
+        rosterList.ts = ts;
+
+        $('#roster-' + team + ', #roster-' + team + '-tw')
+            .find('.roster-player')
+            .each(function() {
+                var number = $(this)
+                    .find('.roster-player-number')
+                    .first()
+                    .val();
+
+                var name = $(this)
+                    .find('.roster-player-name')
+                    .find('option:selected')
+                    .text();
+                if (number != 0 || number != '') {
+                    rosterList.roster[number] = name;
+                }
+            });
+    } else {
+        rosterList.startingSix = $('#simple-starting-six-' + team + '-tw').val();
+        rosterList.startingSix += ',' + $('#simple-starting-six-' + team + '-dl').val();
+        rosterList.startingSix += ',' + $('#simple-starting-six-' + team + '-dr').val();
+        rosterList.startingSix += ',' + $('#simple-starting-six-' + team + '-c').val();
+        rosterList.startingSix += ',' + $('#simple-starting-six-' + team + '-wl').val();
+        rosterList.startingSix += ',' + $('#simple-starting-six-' + team + '-wr').val();
+
+        var ts = $('#topscorer-' + team).val() == 'nicht_gesetzt' ? null : $('#topscorer-' + team).val();
+        rosterList.ts = ts;
+
+        $('#simple-starting-six-' + team + '-tw')
+            .find('option')
+            .each(function(key, value) {
+                if (key > 0) {
+                    var player = $(value)
+                        .text()
+                        .split(' - ');
+                    rosterList.roster[player[0]] = player[1];
+                }
+            });
+    }
 
     return rosterList;
 }
@@ -361,15 +389,12 @@ async function downloadGameSettings(mode) {
                     case 'preview':
                         window.open('../file-handler/SettingsPreview.php?file=' + outputFile.file, '_blank');
                         break;
-                    
-                    case "download":
-                        $("#game-settings-download-link").attr(
-                            "href",
-                            outputFile.protocol + outputFile.path + outputFile.file
-                        );
-                        $("#game-settings-download-link").text(outputFile.file);
-                        $('#game-settings-download-text').text("Die Spiel-Konfiguration wurde erstellt und kann heruntergeladen werden:");
-                        $("#show-download-url").show();
+
+                    case 'download':
+                        $('#game-settings-download-link').attr('href', outputFile.protocol + outputFile.path + outputFile.file);
+                        $('#game-settings-download-link').text(outputFile.file);
+                        $('#game-settings-download-text').text('Die Spiel-Konfiguration wurde erstellt und kann heruntergeladen werden:');
+                        $('#show-download-url').show();
                         break;
                 }
             }
@@ -422,11 +447,11 @@ function validateGameSettingsData() {
         }
 
         // Starting Six Option
-        if ($('#roster-home-starting-six').find('.starting-six-option-selected').length == 0) {
+        if ($('#roster-home-starting-six').find('.starting-six-option-selected').length == 0 && $('#game-roster-choice').val() == 'yes') {
             warnMsgList.push('Heimteam: Keine Starting Six Option ausgewählt');
         }
 
-        if ($('#roster-away-starting-six').find('.starting-six-option-selected').length == 0) {
+        if ($('#roster-away-starting-six').find('.starting-six-option-selected').length == 0 && $('#game-roster-choice').val() == 'yes') {
             warnMsgList.push('Auswärtsteam: Keine Starting Six Option ausgewählt');
         }
 
@@ -434,7 +459,8 @@ function validateGameSettingsData() {
         if (
             $('#roster-home-starting-six')
                 .find('.starting-six-option-selected')
-                .attr('id') == 'home-starting-six-custom'
+                .attr('id') == 'home-starting-six-custom' &&
+            $('#game-roster-choice').val() == 'yes'
         ) {
             var homeCustomStartingSix = {
                 tw: $('#home-starting-six-tw').val(),
@@ -458,7 +484,8 @@ function validateGameSettingsData() {
         if (
             $('#roster-away-starting-six')
                 .find('.starting-six-option-selected')
-                .attr('id') == 'away-starting-six-custom'
+                .attr('id') == 'away-starting-six-custom' &&
+            $('#game-roster-choice').val() == 'yes'
         ) {
             var awayCustomStartingSix = {
                 tw: $('#away-starting-six-tw').val(),
@@ -509,43 +536,43 @@ function validateGameSettingsData() {
 
 function downloadGameThumbnail(mode) {
     var homeTeamData = {
-	HomeTeamLong: $('#home-team-long').val(),
-	HomeTeamLogo: $('#home-team-logo').val(),
+        HomeTeamLong: $('#home-team-long').val(),
+        HomeTeamLogo: $('#home-team-logo').val()
     };
 
     var awayTeamData = {
-	AwayTeamLong: $('#away-team-long').val(),
-	AwayTeamLogo: $('#away-team-logo').val(),
+        AwayTeamLong: $('#away-team-long').val(),
+        AwayTeamLogo: $('#away-team-logo').val()
     };
 
     $.ajax({
-	type: 'POST',
-	url: '../file-handler/GameThumbnail.php',
-	data: {
-		GameNr: $('#game-id').val(),
-		Title: $('#game-title').val(),
-		Date: $('#game-date').val(),
-		Time: $('#game-time').val(),
-		Location: $('#game-location').val(),
-		HomeTeamData: homeTeamData,
-		AwayTeamData: awayTeamData,
-                OutputDirectory: Config.outputDirectory
-	},
-	success: function(r) {
-	        var outputFile = JSON.parse(r);
-			
-		switch(mode) {
-		    case 'preview':
-			window.open('../file-handler/SettingsPreview.php?file=' + outputFile.file, '_blank');
-			break;
+        type: 'POST',
+        url: '../file-handler/GameThumbnail.php',
+        data: {
+            GameNr: $('#game-id').val(),
+            Title: $('#game-title').val(),
+            Date: $('#game-date').val(),
+            Time: $('#game-time').val(),
+            Location: $('#game-location').val(),
+            HomeTeamData: homeTeamData,
+            AwayTeamData: awayTeamData,
+            OutputDirectory: Config.outputDirectory
+        },
+        success: function(r) {
+            var outputFile = JSON.parse(r);
 
-		    case 'download':
-			$('#game-settings-download-link').attr('href', outputFile.protocol + outputFile.path + outputFile.file);
-			$('#game-settings-download-link').text(outputFile.file);
-                        $('#game-settings-download-text').text("Das Thumbnail wurde erstellt und kann heruntergeladen werden:");
-                        $('#show-download-url').show();
-			break;
-		}
-	}
-    });       
+            switch (mode) {
+                case 'preview':
+                    window.open('../file-handler/SettingsPreview.php?file=' + outputFile.file, '_blank');
+                    break;
+
+                case 'download':
+                    $('#game-settings-download-link').attr('href', outputFile.protocol + outputFile.path + outputFile.file);
+                    $('#game-settings-download-link').text(outputFile.file);
+                    $('#game-settings-download-text').text('Das Thumbnail wurde erstellt und kann heruntergeladen werden:');
+                    $('#show-download-url').show();
+                    break;
+            }
+        }
+    });
 }

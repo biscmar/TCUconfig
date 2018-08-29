@@ -174,7 +174,7 @@ function displayError(errMsgList, warnMsgList) {
         $("#error-list").empty();
         $("#warn-list").empty();
 
-        if (errMsgList.length != 0) {
+        if (errMsgList !== null && errMsgList.length != 0) {
             $(".error").show();
             $("#ignore-warn-page").hide();
             console.error("Fehler", errMsgList);
@@ -183,7 +183,7 @@ function displayError(errMsgList, warnMsgList) {
             });
         }
         
-        if (warnMsgList.length != 0) {
+        if (warnMsgList !== null && warnMsgList.length != 0) {
             $(".warn").show();
             console.log("Warnungen", warnMsgList);
             warnMsgList.forEach(warnMsg => {

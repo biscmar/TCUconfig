@@ -46,7 +46,6 @@
 
 	fwrite($file, "TeamLong=" . $HomeTeamData['HomeTeamLong'] . PHP_EOL);
 	fwrite($file, "TeamShort=" . $HomeTeamData['HomeTeamShort'] . PHP_EOL);
-	fwrite($file, "TeamColor=" . $HomeTeamData['HomeColor'] . PHP_EOL);
 	fwrite($file, "Headcoach=" . $HomeTeamData['HomeHeadcoach'] . PHP_EOL);
 	fwrite($file, "Starting6=" . $HomeTeamData['HomeTeamLineup']['startingSix'] . PHP_EOL);
 
@@ -71,7 +70,6 @@
 
 	fwrite($file, "TeamLong=" . $AwayTeamData['AwayTeamLong'] . PHP_EOL);
 	fwrite($file, "TeamShort=" . $AwayTeamData['AwayTeamShort'] . PHP_EOL);
-	fwrite($file, "TeamColor=" . $AwayTeamData['AwayColor'] . PHP_EOL);
 	fwrite($file, "Headcoach=" . $AwayTeamData['AwayHeadcoach'] . PHP_EOL);
 	fwrite($file, "Starting6=" . $AwayTeamData['AwayTeamLineup']['startingSix'] . PHP_EOL);
 

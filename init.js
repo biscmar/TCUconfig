@@ -108,20 +108,6 @@ $('body').on('click', '.roster-starting-six-option', function() {
     }
 });
 
-// Globaler Click-EventHandler auf Color Picker registrieren
-$('body').on('click', '.color-picker-item', function() {
-    if ($(this).hasClass('selected')) {
-        $(this).removeClass('selected');
-    } else {
-        $(this)
-            .parent()
-            .find('.color-picker-item')
-            .removeClass('selected');
-
-        $(this).addClass('selected');
-    }
-});
-
 // Globaler Focusout-EventHandler auf Roster Player Number registrieren
 $('body').on('focusout', '.roster-player-number', function() {
     if ($(this).val() === '') {

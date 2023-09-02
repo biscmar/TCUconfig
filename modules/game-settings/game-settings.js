@@ -49,10 +49,6 @@ function initGame(gameId) {
                     );
                 }
 
-                $('.color-picker-item').each(function() {
-                    $(this).css('background-color', $(this).attr('id'));
-                });
-
                 // Section "Home"
                 var home = references[game.attrs.home_team];
                 $('#home-team-long').val(home.attrs.name);
@@ -94,9 +90,6 @@ function clearAllFields() {
     $('#home-team-long').val('');
     $('#home-team-short').val('');
     $('#home-coach').val('');
-    $('#color-home')
-        .find('div.selected')
-        .removeClass('selected');
     $('#roster-home-starting-six')
         .find('div.starting-six-option-selected')
         .removeClass('starting-six-option-selected');
@@ -108,9 +101,6 @@ function clearAllFields() {
     $('#away-team-long').val('');
     $('#away-team-short').val('');
     $('#away-coach').val('');
-    $('#color-away')
-        .find('div.selected')
-        .removeClass('selected');
     $('#roster-away-starting-six')
         .find('div.starting-six-option-selected')
         .removeClass('starting-six-option-selected');
@@ -345,27 +335,15 @@ async function downloadGameSettings(mode) {
             HomeTeamLong: $('#home-team-long').val(),
             HomeTeamShort: $('#home-team-short').val(),
             HomeHeadcoach: $('#home-coach').val(),
-            HomeColor: $('#color-home')
-                .find('.selected')
-                .attr('id'),
             HomeTeamLineup: getRosterList('home')
         };
-        if (homeTeamData.HomeColor === undefined) {
-            homeTeamData.HomeColor = null;
-        }
 
         var awayTeamData = {
             AwayTeamLong: $('#away-team-long').val(),
             AwayTeamShort: $('#away-team-short').val(),
             AwayHeadcoach: $('#away-coach').val(),
-            AwayColor: $('#color-away')
-                .find('.selected')
-                .attr('id'),
             AwayTeamLineup: getRosterList('away')
         };
-        if (awayTeamData.AwayColor === undefined) {
-            awayTeamData.AwayColor = null;
-        }
 
         $.ajax({
             type: 'POST',
@@ -412,40 +390,6 @@ function validateGameSettingsData() {
         // Titelfeld nicht verändert
         if ($('#game-title').val() == Config.gameTitleDefault) {
             warnMsgList.push('Das Titel-Feld wurde nicht verändert');
-        }
-
-        // Trikot-Farbe
-        if (
-            $('#color-home')
-                .find('.selected')
-                .attr('id') == null
-        ) {
-            warnMsgList.push('Heimteam: Keine Trikot-Farbe ausgewählt');
-        }
-
-        if (
-            $('#color-away')
-                .find('.selected')
-                .attr('id') == null
-        ) {
-            warnMsgList.push('Auswärtsteam: Keine Trikot-Farbe ausgewählt');
-        }
-
-        if (
-            $('#color-away')
-                .find('.selected')
-                .attr('id') ==
-                $('#color-home')
-                    .find('.selected')
-                    .attr('id') &&
-            $('#color-home')
-                .find('.selected')
-                .attr('id') != null &&
-            $('#color-away')
-                .find('.selected')
-                .attr('id') != null
-        ) {
-            warnMsgList.push('Heimteam und Auswärtsteam haben die gleiche Trikot-Farbe');
         }
 
         // Starting Six Option

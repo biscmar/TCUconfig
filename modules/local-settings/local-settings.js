@@ -25,9 +25,6 @@ function loadLocalSettings() {
 function parseImportedLocalSettings(importedLocalSettings) {
     $("#general-ip").val(importedLocalSettings.General.DefaultIPAddress);
     $("#general-team-logo-path").val(importedLocalSettings.General.TeamLogoPath);
-    $("#general-scoreboard-penalty-color").val(importedLocalSettings.General.ScoreboardPenaltyColor);
-    $("#general-scoreboard-penalty-shots-ok").val(importedLocalSettings.General.ScoreboardPenaltyShotsOK);
-    $("#general-scoreboard-penalty-shots-nok").val(importedLocalSettings.General.ScoreboardPenaltyShotsNOK);
 
     $("#shortcut-01-line1").val(importedLocalSettings.Shortcut01.Line1);
     $("#shortcut-01-line2").val(importedLocalSettings.Shortcut01.Line2);
@@ -153,10 +150,7 @@ function downloadLocalSettings(mode) {
     if (validateLocalSettingsData()) {
         var generalData = {
             DefaultIPAddress: $("#general-ip").val(),
-            TeamLogoPath: $("#general-team-logo-path").val(),
-            ScoreboardPenaltyColor: $("#general-scoreboard-penalty-color").val(),
-            ScoreboardPenaltyShotsOK: $("#general-scoreboard-penalty-shots-ok").val(),
-            ScoreboardPenaltyShotsNOK: $("#general-scoreboard-penalty-shots-nok").val()
+            TeamLogoPath: $("#general-team-logo-path").val()
         };
 
         var shortcutData = {

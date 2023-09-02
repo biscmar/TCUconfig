@@ -46,7 +46,7 @@
 
 	fwrite($file, "TeamLong=" . $HomeTeamData['HomeTeamLong'] . PHP_EOL);
 	fwrite($file, "TeamShort=" . $HomeTeamData['HomeTeamShort'] . PHP_EOL);
-	fwrite($file, "Headcoach=" . $HomeTeamData['HomeHeadcoach'] . PHP_EOL);
+	fwrite($file, "Coach=" . $HomeTeamData['HomeCoach'] . PHP_EOL);
 	fwrite($file, "Starting6=" . $HomeTeamData['HomeTeamLineup']['startingSix'] . PHP_EOL);
 
 	if ($HomeTeamData['HomeTeamLineup']['line1'] != null) { fwrite($file, "Line1=" . $HomeTeamData['HomeTeamLineup']['line1'] . PHP_EOL); }
@@ -70,7 +70,7 @@
 
 	fwrite($file, "TeamLong=" . $AwayTeamData['AwayTeamLong'] . PHP_EOL);
 	fwrite($file, "TeamShort=" . $AwayTeamData['AwayTeamShort'] . PHP_EOL);
-	fwrite($file, "Headcoach=" . $AwayTeamData['AwayHeadcoach'] . PHP_EOL);
+	fwrite($file, "Coach=" . $AwayTeamData['AwayCoach'] . PHP_EOL);
 	fwrite($file, "Starting6=" . $AwayTeamData['AwayTeamLineup']['startingSix'] . PHP_EOL);
 
 	if ($AwayTeamData['AwayTeamLineup']['line1'] != null) { fwrite($file, "Line1=" . $AwayTeamData['AwayTeamLineup']['line1'] . PHP_EOL); }

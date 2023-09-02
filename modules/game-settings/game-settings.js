@@ -334,14 +334,14 @@ async function downloadGameSettings(mode) {
         var homeTeamData = {
             HomeTeamLong: $('#home-team-long').val(),
             HomeTeamShort: $('#home-team-short').val(),
-            HomeHeadcoach: $('#home-coach').val(),
+            HomeCoach: $('#home-coach').val(),
             HomeTeamLineup: getRosterList('home')
         };
 
         var awayTeamData = {
             AwayTeamLong: $('#away-team-long').val(),
             AwayTeamShort: $('#away-team-short').val(),
-            AwayHeadcoach: $('#away-coach').val(),
+            AwayCoach: $('#away-coach').val(),
             AwayTeamLineup: getRosterList('away')
         };
 

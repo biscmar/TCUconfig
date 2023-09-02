@@ -31,6 +31,16 @@
 	}
 
 	fwrite($file, PHP_EOL);
+
+	// Abschlitt [PersonalSponsor]
+	fwrite($file, "[PersonalSponsor]" . PHP_EOL);
+	$PersonalSponsor = $_POST['PersonalSponsor'];
+
+	foreach ($PersonalSponsor as $key => $value) {
+		fwrite($file, $key . "=" . $value . PHP_EOL);
+	}
+
+	fwrite($file, PHP_EOL);
 	
 	// Abschlitt [Shortcuts]
 	$ShortcutData = $_POST['ShortcutData'];

@@ -25,6 +25,13 @@ function loadLocalSettings() {
 function parseImportedLocalSettings(importedLocalSettings) {
     $("#general-ip").val(importedLocalSettings.General.DefaultIPAddress);
     $("#general-team-logo-path").val(importedLocalSettings.General.TeamLogoPath);
+    
+    $("#personal-sponsor-home-path").val(importedLocalSettings.PersonalSponsor.PersonalSponsorHomePath);
+    $("#personal-sponsor-away-path").val(importedLocalSettings.PersonalSponsor.PersonalSponsorAwayPath);
+    $("#show-personal-sponsor-on-goal").val(importedLocalSettings.PersonalSponsor.ShowPersonalSponsorOnGoal);
+    $("#show-personal-sponsor-on-penalty").val(importedLocalSettings.PersonalSponsor.ShowPersonalSponsorOnPenalty);
+    $("#show-personal-sponsor-on-name").val(importedLocalSettings.PersonalSponsor.ShowPersonalSponsorOnName);
+    $("#show-personal-sponsor-on-best-player").val(importedLocalSettings.PersonalSponsor.ShowPersonalSponsorOnBestPlayer);
 
     $("#shortcut-01-line1").val(importedLocalSettings.Shortcut01.Line1);
     $("#shortcut-01-line2").val(importedLocalSettings.Shortcut01.Line2);
@@ -152,6 +159,15 @@ function downloadLocalSettings(mode) {
             DefaultIPAddress: $("#general-ip").val(),
             TeamLogoPath: $("#general-team-logo-path").val()
         };
+        
+        var personalSponsor = {
+            PersonalSponsorHomePath: $("#personal-sponsor-home-path").val(),
+            PersonalSponsorAwayPath: $("#personal-sponsor-away-path").val(),
+            ShowPersonalSponsorOnGoal: $("#show-personal-sponsor-on-goal").val(),
+            ShowPersonalSponsorOnPenalty: $("#show-personal-sponsor-on-penalty").val(),
+            ShowPersonalSponsorOnName: $("#show-personal-sponsor-on-name").val(),
+            ShowPersonalSponsorOnBestPlayer: $("#show-personal-sponsor-on-best-player").val()
+        };
 
         var shortcutData = {
             Shortcut01: getShortcutData("01"),
@@ -198,6 +214,7 @@ function downloadLocalSettings(mode) {
             url: "../file-handler/LocalSettings.php",
             data: {
                 GeneralData: generalData,
+                PersonalSponsor: personalSponsor,
                 ShortcutData: shortcutData,
                 CardData: cardData,
                 SponsorData: sponsorData,

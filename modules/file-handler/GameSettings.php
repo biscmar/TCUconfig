@@ -38,12 +38,12 @@
 	$HomeTeamData = $_POST['HomeTeamData'];
 
 	foreach ($HomeTeamData["HomeTeamLineup"]['roster'] as $number => $name) {
+		$nr = $number == 0 ? '00' : $number;
 		if (strlen($name) != 0) {
-			fwrite($file, $number . "=" . $name . PHP_EOL);
+			fwrite($file, $nr . "=" . $name . PHP_EOL);
 		}
 	}
 
-	fwrite($file, "00=" . $HomeTeamData['HomeTeamLineup']['ts'] . PHP_EOL);
 	fwrite($file, "TeamLong=" . $HomeTeamData['HomeTeamLong'] . PHP_EOL);
 	fwrite($file, "TeamShort=" . $HomeTeamData['HomeTeamShort'] . PHP_EOL);
 	fwrite($file, "TeamColor=" . $HomeTeamData['HomeColor'] . PHP_EOL);
@@ -63,12 +63,12 @@
 	$AwayTeamData = $_POST['AwayTeamData'];
 
 	foreach ($AwayTeamData["AwayTeamLineup"]['roster'] as $number => $name) {
+		$nr = $number == 0 ? '00' : $number;
 		if (strlen($name) != 0) {
-			fwrite($file, $number . "=" . $name . PHP_EOL);
+			fwrite($file, $nr . "=" . $name . PHP_EOL);
 		}
 	}
 
-	fwrite($file, "00=" . $AwayTeamData['AwayTeamLineup']['ts'] . PHP_EOL);
 	fwrite($file, "TeamLong=" . $AwayTeamData['AwayTeamLong'] . PHP_EOL);
 	fwrite($file, "TeamShort=" . $AwayTeamData['AwayTeamShort'] . PHP_EOL);
 	fwrite($file, "TeamColor=" . $AwayTeamData['AwayColor'] . PHP_EOL);

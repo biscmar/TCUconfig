@@ -174,7 +174,7 @@ function parseRoster(lineUpList, references, team) {
 
         // Element für Topscorer-Auswahl
         var topscorerOption = $('<option>', {
-            value: player.attrs.name
+            value: position.attrs.number + ',' + player.attrs.name
         }).text(position.attrs.number + ' - ' + player.attrs.name);
 
         $('#topscorer-' + team).append(topscorerOption);
@@ -224,9 +224,11 @@ function getRosterList(team) {
         line3: null,
         line4: null,
         goal: null,
-        ts: null,
         roster: {}
     };
+    
+    var ts = $('#topscorer-' + team).val() == 'nicht_gesetzt' ? ['n/a', 'nicht_gesetzt'] : $('#topscorer-' + team).val().split(',');
+    
     if ($('#game-roster-choice').val() == 'yes') {
         if ($('#roster-' + team + '-starting-six').find('.starting-six-option-selected').length == 1) {
             switch (
@@ -236,25 +238,25 @@ function getRosterList(team) {
                     .attr('id')
             ) {
                 case team + '-starting-six-line-1':
-                    var lineList = getLine(team, 'line-1');
+                    var lineList = getLine(team, 'line-1').replace(ts[0], '00');
                     rosterList.startingSix = $('#' + team + '-roster-tw1').val();
                     rosterList.startingSix += ',' + lineList;
                     break;
 
                 case team + '-starting-six-line-2':
-                    var lineList = getLine(team, 'line-2');
+                    var lineList = getLine(team, 'line-2').replace(ts[0], '00');
                     rosterList.startingSix = $('#' + team + '-roster-tw1').val();
                     rosterList.startingSix += ',' + lineList;
                     break;
 
                 case team + '-starting-six-line-3':
-                    var lineList = getLine(team, 'line-3');
+                    var lineList = getLine(team, 'line-3').replace(ts[0], '00');
                     rosterList.startingSix = $('#' + team + '-roster-tw1').val();
                     rosterList.startingSix += ',' + lineList;
                     break;
 
                 case team + '-starting-six-line-4':
-                    var lineList = getLine(team, 'line-4');
+                    var lineList = getLine(team, 'line-4').replace(ts[0], '00');
                     rosterList.startingSix = $('#' + team + '-roster-tw1').val();
                     rosterList.startingSix += ',' + lineList;
                     break;
@@ -266,6 +268,7 @@ function getRosterList(team) {
                     rosterList.startingSix += ',' + $('#' + team + '-starting-six-c').val();
                     rosterList.startingSix += ',' + $('#' + team + '-starting-six-wl').val();
                     rosterList.startingSix += ',' + $('#' + team + '-starting-six-wr').val();
+                    rosterList.startingSix = rosterList.startingSix.replace(ts[0], '00');
                     break;
 
                 default:
@@ -273,15 +276,12 @@ function getRosterList(team) {
             }
         }
 
-        rosterList.line1 = getLine(team, 'line-1');
-        rosterList.line2 = getLine(team, 'line-2');
-        rosterList.line3 = getLine(team, 'line-3');
-        rosterList.line4 = getLine(team, 'line-4');
+        rosterList.line1 = getLine(team, 'line-1').replace(ts[0], '00');
+        rosterList.line2 = getLine(team, 'line-2').replace(ts[0], '00');
+        rosterList.line3 = getLine(team, 'line-3').replace(ts[0], '00');
+        rosterList.line4 = getLine(team, 'line-4').replace(ts[0], '00');
         rosterList.goal = $('#' + team + '-roster-tw1').val();
         rosterList.goal += ',' + $('#' + team + '-roster-tw2').val();
-
-        var ts = $('#topscorer-' + team).val() == 'nicht_gesetzt' ? null : $('#topscorer-' + team).val();
-        rosterList.ts = ts;
 
         $('#roster-' + team + ', #roster-' + team + '-tw')
             .find('.roster-player')
@@ -295,7 +295,9 @@ function getRosterList(team) {
                     .find('.roster-player-name')
                     .find('option:selected')
                     .text();
-                if (number != 0 || number != '') {
+                if (Array.isArray(ts) && number == ts[0]) {
+                    rosterList.roster[0] = name;
+                } else if (number != 0 || number != '') {
                     rosterList.roster[number] = name;
                 }
             });
@@ -306,14 +308,14 @@ function getRosterList(team) {
         rosterList.startingSix += ',' + $('#simple-starting-six-' + team + '-c').val();
         rosterList.startingSix += ',' + $('#simple-starting-six-' + team + '-wl').val();
         rosterList.startingSix += ',' + $('#simple-starting-six-' + team + '-wr').val();
-
-        var ts = $('#topscorer-' + team).val() == 'nicht_gesetzt' ? null : $('#topscorer-' + team).val();
-        rosterList.ts = ts;
+        rosterList.startingSix = rosterList.startingSix.replace(ts[0], '00');
 
         $('#simple-starting-six-' + team + '-tw')
             .find('option')
             .each(function(key, value) {
-                if (key > 0) {
+                if (key > 0 && Array.isArray(ts) && key == ts[0]) {
+                    rosterList.roster[0] = ts[1];
+                } else if (key > 0) {
                     var player = $(value)
                         .text()
                         .split(' - ');

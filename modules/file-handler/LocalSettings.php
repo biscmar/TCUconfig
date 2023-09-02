@@ -80,31 +80,6 @@
 	
 	fwrite($file, PHP_EOL);
 
-	// Abschlitt [PenaltyCodes2]
-	fwrite($file, "[PenaltyCodes2]" . PHP_EOL);
-
-	foreach ($ini_preset["PenaltyCodes2"] as $key => $value) {
- 		fwrite($file, $key . "=" . $value . PHP_EOL);
-	}
-
-	fwrite($file, PHP_EOL);
-
-	// Abschlitt [PenaltyCodes5]
-	fwrite($file, "[PenaltyCodes5]" . PHP_EOL);
-
-	foreach ($ini_preset["PenaltyCodes5"] as $key => $value) {
- 		fwrite($file, $key . "=" . $value . PHP_EOL);
-	}
-
-	fwrite($file, PHP_EOL);
-
-	// Abschlitt [PenaltyCodes10]
-	fwrite($file, "[PenaltyCodes10]" . PHP_EOL);
-
-	foreach ($ini_preset["PenaltyCodes10"] as $key => $value) {
- 		fwrite($file, $key . "=" . $value . PHP_EOL);
-	}
-
 	fwrite($file, PHP_EOL);
 	fwrite($file, "[System-Config]");
 	fwrite($file, PHP_EOL);

@@ -33,6 +33,9 @@ function parseImportedLocalSettings(importedLocalSettings) {
     $("#show-personal-sponsor-on-name").val(importedLocalSettings.PersonalSponsor.ShowPersonalSponsorOnName);
     $("#show-personal-sponsor-on-best-player").val(importedLocalSettings.PersonalSponsor.ShowPersonalSponsorOnBestPlayer);
 
+    $("#stop-time-on-goal").val(importedLocalSettings.Scoreboard.StopTimeOnGoal);
+    $("#hide-scoreboard-on-goal").val(importedLocalSettings.Scoreboard.HideScoreboardOnGoal);
+
     $("#shortcut-01-line1").val(importedLocalSettings.Shortcut01.Line1);
     $("#shortcut-01-line2").val(importedLocalSettings.Shortcut01.Line2);
     $("#shortcut-01-line3").val(importedLocalSettings.Shortcut01.Line3);
@@ -169,6 +172,11 @@ function downloadLocalSettings(mode) {
             ShowPersonalSponsorOnBestPlayer: $("#show-personal-sponsor-on-best-player").val()
         };
 
+        var scoreboard = {
+            StopTimeOnGoal: $("#stop-time-on-goal").val(),
+            HideScoreboardOnGoal: $("#hide-scoreboard-on-goal").val()
+        };
+
         var shortcutData = {
             Shortcut01: getShortcutData("01"),
             Shortcut02: getShortcutData("02"),
@@ -215,6 +223,7 @@ function downloadLocalSettings(mode) {
             data: {
                 GeneralData: generalData,
                 PersonalSponsor: personalSponsor,
+                Scoreboard: scoreboard,
                 ShortcutData: shortcutData,
                 CardData: cardData,
                 SponsorData: sponsorData,

@@ -41,6 +41,16 @@
 	}
 
 	fwrite($file, PHP_EOL);
+
+	// Abschlitt [Scoreboard]
+	fwrite($file, "[Scoreboard]" . PHP_EOL);
+	$Scoreboard = $_POST['Scoreboard'];
+
+	foreach ($Scoreboard as $key => $value) {
+		fwrite($file, $key . "=" . $value . PHP_EOL);
+	}
+
+	fwrite($file, PHP_EOL);
 	
 	// Abschlitt [Shortcuts]
 	$ShortcutData = $_POST['ShortcutData'];

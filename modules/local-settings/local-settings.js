@@ -24,7 +24,7 @@ function loadLocalSettings() {
 
 function parseImportedLocalSettings(importedLocalSettings) {
     $("#general-ip").val(importedLocalSettings.General.DefaultIPAddress);
-    $("#general-club-pictures").val(importedLocalSettings.General.ClubPicturesRootPath);
+    $("#general-team-logo-path").val(importedLocalSettings.General.TeamLogoPath);
     $("#general-scoreboard-penalty-color").val(importedLocalSettings.General.ScoreboardPenaltyColor);
     $("#general-scoreboard-penalty-shots-ok").val(importedLocalSettings.General.ScoreboardPenaltyShotsOK);
     $("#general-scoreboard-penalty-shots-nok").val(importedLocalSettings.General.ScoreboardPenaltyShotsNOK);
@@ -65,22 +65,6 @@ function parseImportedLocalSettings(importedLocalSettings) {
     $("#shortcut-09-line2").val(importedLocalSettings.Shortcut09.Line2);
     $("#shortcut-09-line3").val(importedLocalSettings.Shortcut09.Line3);
 
-    $("#shortcut-10-line1").val(importedLocalSettings.Shortcut10.Line1);
-    $("#shortcut-10-line2").val(importedLocalSettings.Shortcut10.Line2);
-    $("#shortcut-10-line3").val(importedLocalSettings.Shortcut10.Line3);
-
-    $("#shortcut-11-line1").val(importedLocalSettings.Shortcut11.Line1);
-    $("#shortcut-11-line2").val(importedLocalSettings.Shortcut11.Line2);
-    $("#shortcut-11-line3").val(importedLocalSettings.Shortcut11.Line3);
-
-    $("#shortcut-12-line1").val(importedLocalSettings.Shortcut12.Line1);
-    $("#shortcut-12-line2").val(importedLocalSettings.Shortcut12.Line2);
-    $("#shortcut-12-line3").val(importedLocalSettings.Shortcut12.Line3);
-
-    $("#shortcut-13-line1").val(importedLocalSettings.Shortcut13.Line1);
-    $("#shortcut-13-line2").val(importedLocalSettings.Shortcut13.Line2);
-    $("#shortcut-13-line3").val(importedLocalSettings.Shortcut13.Line3);
-
     $("#card-01-line1").val(importedLocalSettings.Card01.ButtonLabel);
     $("#card-01-line2").val(importedLocalSettings.Card01.TitleName);
 
@@ -92,6 +76,18 @@ function parseImportedLocalSettings(importedLocalSettings) {
 
     $("#card-04-line1").val(importedLocalSettings.Card04.ButtonLabel);
     $("#card-04-line2").val(importedLocalSettings.Card04.TitleName);
+
+    $("#card-05-line1").val(importedLocalSettings.Card05.ButtonLabel);
+    $("#card-05-line2").val(importedLocalSettings.Card05.TitleName);
+
+    $("#card-06-line1").val(importedLocalSettings.Card06.ButtonLabel);
+    $("#card-06-line2").val(importedLocalSettings.Card06.TitleName);
+
+    $("#card-07-line1").val(importedLocalSettings.Card07.ButtonLabel);
+    $("#card-07-line2").val(importedLocalSettings.Card07.TitleName);
+
+    $("#card-08-line1").val(importedLocalSettings.Card08.ButtonLabel);
+    $("#card-08-line2").val(importedLocalSettings.Card08.TitleName);
 
     $("#sponsor-01-line1").val(importedLocalSettings.Sponsor01.ButtonLabel);
     $("#sponsor-01-line2").val(importedLocalSettings.Sponsor01.Title);
@@ -157,7 +153,7 @@ function downloadLocalSettings(mode) {
     if (validateLocalSettingsData()) {
         var generalData = {
             DefaultIPAddress: $("#general-ip").val(),
-            ClubPicturesRootPath: $("#general-club-pictures").val(),
+            TeamLogoPath: $("#general-team-logo-path").val(),
             ScoreboardPenaltyColor: $("#general-scoreboard-penalty-color").val(),
             ScoreboardPenaltyShotsOK: $("#general-scoreboard-penalty-shots-ok").val(),
             ScoreboardPenaltyShotsNOK: $("#general-scoreboard-penalty-shots-nok").val()
@@ -173,17 +169,17 @@ function downloadLocalSettings(mode) {
             Shortcut07: getShortcutData("07"),
             Shortcut08: getShortcutData("08"),
             Shortcut09: getShortcutData("09"),
-            Shortcut10: getShortcutData("10"),
-            Shortcut11: getShortcutData("11"),
-            Shortcut12: getShortcutData("12"),
-            Shortcut13: getShortcutData("13")
         };
 
         var cardData = {
             Card01: getCardData("01"),
             Card02: getCardData("02"),
             Card03: getCardData("03"),
-            Card04: getCardData("04")
+            Card04: getCardData("04"),
+            Card05: getCardData("05"),
+            Card06: getCardData("06"),
+            Card07: getCardData("07"),
+            Card08: getCardData("08")
         };
 
         var sponsorAuto = new Object();

@@ -23,7 +23,7 @@ function loadLocalSettings() {
 }
 
 function parseImportedLocalSettings(importedLocalSettings) {
-    $("#general-ip").val(importedLocalSettings.General.DefaultIPAddress);
+    $("#general-ip").val(importedLocalSettings.General.IPAddress);
     $("#general-team-logo-path").val(importedLocalSettings.General.TeamLogoPath);
     
     $("#personal-sponsor-home-path").val(importedLocalSettings.PersonalSponsor.PersonalSponsorHomePath);
@@ -131,7 +131,7 @@ function getSponsorData(sponsorNr) {
 function downloadLocalSettings(mode) {
     if (validateLocalSettingsData()) {
         var generalData = {
-            DefaultIPAddress: $("#general-ip").val(),
+            IPAddress: $("#general-ip").val(),
             TeamLogoPath: $("#general-team-logo-path").val()
         };
         

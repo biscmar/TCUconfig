@@ -21,6 +21,9 @@ function initGame(gameId) {
                 // Section "Game"
                 $('#game-id').val(game.id);
 
+                $('#game-league-id').val('su');
+                $('#game-league-id').trigger("change");
+
                 if (game.attrs.hasOwnProperty('starts_at')) {
                     var date = game.attrs.starts_at.split('T')[0].split('-');
                     $('#game-date').val(date[2] + '.' + date[1] + '.' + date[0]);
@@ -97,9 +100,6 @@ function clearAllFields() {
     $('#section-game')
         .find('input')
         .val('');
-
-    $('#game-league-id').val('luplw');
-    $('#game-league-id').trigger("change");
 
     $('#home-team-long').val('');
     $('#home-team-short').val('');

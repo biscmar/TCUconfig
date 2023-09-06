@@ -6,6 +6,9 @@ $('body').on('click', '.subnav li', function() {
     $(this).addClass('active');
 });
 
+// Titel-Feld initialisieren
+$('#game-league-id').trigger("change");
+
 // Globaler Click-EventHandler für die Buttons registrieren
 $('body').on('click', 'input[type="button"]', function() {
     switch ($(this).attr('id')) {

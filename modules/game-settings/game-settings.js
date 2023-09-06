@@ -21,8 +21,6 @@ function initGame(gameId) {
                 // Section "Game"
                 $('#game-id').val(game.id);
 
-                $('#game-title').val(Config.gameTitleDefault);
-
                 if (game.attrs.hasOwnProperty('starts_at')) {
                     var date = game.attrs.starts_at.split('T')[0].split('-');
                     $('#game-date').val(date[2] + '.' + date[1] + '.' + date[0]);
@@ -82,10 +80,26 @@ $('#game-roster-choice').change(function() {
     }
 });
 
+$('#game-league-id').change(function() {
+    if ($(this).val() == 'luplw') {
+        $('#game-title').prop( 'disabled', true);
+        $('#game-title').val('L-UPL Women');
+    } else if ($(this).val() == 'luplm') {
+        $('#game-title').prop( 'disabled', true);
+        $('#game-title').val('L-UPL Men');
+    } else if ($(this).val() == 'su') {
+        $('#game-title').prop( 'disabled', false);
+        $('#game-title').val(Config.gameTitleDefault);
+    }
+});
+
 function clearAllFields() {
     $('#section-game')
         .find('input')
         .val('');
+
+    $('#game-league-id').val('luplw');
+    $('#game-league-id').trigger("change");
 
     $('#home-team-long').val('');
     $('#home-team-short').val('');

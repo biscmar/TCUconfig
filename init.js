@@ -6,6 +6,9 @@ $('body').on('click', '.subnav li', function() {
     $(this).addClass('active');
 });
 
+// Titel-Feld initialisieren
+$('#game-league-id').trigger("change");
+
 // Globaler Click-EventHandler für die Buttons registrieren
 $('body').on('click', 'input[type="button"]', function() {
     switch ($(this).attr('id')) {
@@ -31,10 +34,6 @@ $('body').on('click', 'input[type="button"]', function() {
 
         case 'download-game-settings':
             downloadGameSettings('download');
-            break;
-
-        case 'download-game-thumbnail':
-            downloadGameThumbnail('download');
             break;
 
         case 'preview-local-settings':
@@ -109,20 +108,6 @@ $('body').on('click', '.roster-starting-six-option', function() {
 
         default:
             console.log('Unbekante roster-starting-six-option');
-    }
-});
-
-// Globaler Click-EventHandler auf Color Picker registrieren
-$('body').on('click', '.color-picker-item', function() {
-    if ($(this).hasClass('selected')) {
-        $(this).removeClass('selected');
-    } else {
-        $(this)
-            .parent()
-            .find('.color-picker-item')
-            .removeClass('selected');
-
-        $(this).addClass('selected');
     }
 });
 

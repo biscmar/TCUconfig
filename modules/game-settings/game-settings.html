@@ -38,6 +38,15 @@
 			</div>
 
 			<div class="input-field">
+				<label for="game-league-id">Liga-ID:</label>
+				<select id="game-league-id">
+					<option value="luplw">L-UPL Women</option>
+					<option value="luplm">L-UPL Men</option>
+					<option value="su">swiss unihockey</option>
+				</select>
+			</div>
+
+			<div class="input-field">
 				<label for="game-title">Titel:</label>
 				<input type="text" id="game-title" data-field-name="Title">
 			</div>
@@ -104,8 +113,8 @@
 			</div>
                     
 			<div class="input-field">
-				<label for="home-coach">Headcoach:</label>
-				<input type="text" id="home-coach" data-field-name="HomeHeadcoach">
+				<label for="home-coach">Coach:</label>
+				<input type="text" id="home-coach" data-field-name="HomeCoach">
 			</div>
 
 			<div class="input-field">
@@ -113,28 +122,6 @@
 				<select id="topscorer-home" data-field-name="HomeTopscorer">
 					<option value="nicht_gesetzt">-- Nicht gesetzt --</option>
 				</select>
-			</div>
-
-			<div class="input-field">
-				<label for="color-home">Trikot-Farbe:</label>
-				<div class="color-picker" id="color-home">
-					<div class="color-picker-item" id="#00FFFF">&nbsp;</div>
-					<div class="color-picker-item" id="#000000">&nbsp;</div>
-					<div class="color-picker-item" id="#0000FF">&nbsp;</div>
-					<div class="color-picker-item" id="#FF00FF">&nbsp;</div>
-					<div class="color-picker-item" id="#808080">&nbsp;</div>
-					<div class="color-picker-item" id="#008000">&nbsp;</div>
-					<div class="color-picker-item" id="#00FF00">&nbsp;</div>
-					<div class="color-picker-item" id="#800000">&nbsp;</div>
-					<div class="color-picker-item" id="#000080">&nbsp;</div>
-					<div class="color-picker-item" id="#808000">&nbsp;</div>
-					<div class="color-picker-item" id="#800080">&nbsp;</div>
-					<div class="color-picker-item" id="#FF0000">&nbsp;</div>
-					<div class="color-picker-item" id="#C0C0C0">&nbsp;</div>
-					<div class="color-picker-item" id="#008080">&nbsp;</div>
-					<div class="color-picker-item" id="#FFFFFF">&nbsp;</div>
-					<div class="color-picker-item" id="#FFFF00">&nbsp;</div>
-				</div>
 			</div>
 
 			<div class="roster-group">
@@ -414,8 +401,8 @@
 			</div>
 
 			<div class="input-field">
-				<label for="away-coach">Headcoach:</label>
-				<input type="text" id="away-coach" data-field-name="AwayHeadcoach">
+				<label for="away-coach">Coach:</label>
+				<input type="text" id="away-coach" data-field-name="AwayCoach">
 			</div>
 
 			<div class="input-field">
@@ -423,28 +410,6 @@
 				<select id="topscorer-away" data-field-name="AwayTopscorer">
 					<option value="nicht_gesetzt">-- Nicht gesetzt --</option>
 				</select>
-			</div>
-
-			<div class="input-field">
-				<label for="color-away">Trikot-Farbe:</label>
-				<div class="color-picker" id="color-away">
-					<div class="color-picker-item" id="#00FFFF">&nbsp;</div>
-					<div class="color-picker-item" id="#000000">&nbsp;</div>
-					<div class="color-picker-item" id="#0000FF">&nbsp;</div>
-					<div class="color-picker-item" id="#FF00FF">&nbsp;</div>
-					<div class="color-picker-item" id="#808080">&nbsp;</div>
-					<div class="color-picker-item" id="#008000">&nbsp;</div>
-					<div class="color-picker-item" id="#00FF00">&nbsp;</div>
-					<div class="color-picker-item" id="#800000">&nbsp;</div>
-					<div class="color-picker-item" id="#000080">&nbsp;</div>
-					<div class="color-picker-item" id="#808000">&nbsp;</div>
-					<div class="color-picker-item" id="#800080">&nbsp;</div>
-					<div class="color-picker-item" id="#FF0000">&nbsp;</div>
-					<div class="color-picker-item" id="#C0C0C0">&nbsp;</div>
-					<div class="color-picker-item" id="#008080">&nbsp;</div>
-					<div class="color-picker-item" id="#FFFFFF">&nbsp;</div>
-					<div class="color-picker-item" id="#FFFF00">&nbsp;</div>
-				</div>
 			</div>
 
 			<div class="roster-group">
@@ -738,7 +703,6 @@
 		<input type="button" id="return-to-menu" value="Zurück zur Startseite">
 		<input type="button" id="preview-game-settings" value="Config-File anzeigen">
 		<input type="button" id="download-game-settings" value="Config-File herunterladen">
-                <input type="button" id="download-game-thumbnail" value="Thumbnail herunterladen">
 	</footer>
 
 	<script type="text/javascript" src="../../config.js"></script>

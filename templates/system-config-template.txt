@@ -1,82 +1,53 @@
 [General]
-DefaultIPAddress=localhost:8088
-ClubPicturesRootPath=Pfad\zu\den\Vorlagen\Titles\Title_V07\Clubs
-ScoreboardPenaltyColor=Pfad\zu\den\Vorlagen\Titles\Title_V07\Scoreboard_Penalty_Color.png
-ScoreboardPenaltyShotsOK=Pfad\zu\den\Vorlagen\Titles\Title_V07\ScoreboardPenaltyShots_OK.png
-ScoreboardPenaltyShotsNOK=Pfad\zu\den\Vorlagen\Titles\Title_V07\ScoreboardPenaltyShots_NOK.png
+IPAddress=192.168.0.10
+TeamLogoPath=D:\vMix\Titles\Title_V03_LUPL_SU\TeamLogos
+
+[PersonalSponsor]
+PersonalSponsorHomePath=D:\vMix\Titles\Title_V03_LUPL_SU\PersonalSponsorsHome
+PersonalSponsorAwayPath=D:\vMix\Titles\Title_V03_LUPL_SU\PersonalSponsorsAway
+ShowPersonalSponsorOnGoal=1
+ShowPersonalSponsorOnPenalty=1
+ShowPersonalSponsorOnName=1
+ShowPersonalSponsorOnBestPlayer=1
+
+[Scoreboard]
+StopTimeOnGoal=1
+HideScoreboardOnGoal=1
 
 [Shortcut01]
-Line1=Live aus der Sporthalle ...
-Line2=Unihockey Meisterschaft Herren NLA...
-Line3=Wir starten mit der Übertragung 15 Minuten vor Spielbeginn!
+Text=Entschuldigen Sie die technische Störung!<CRLF>Wir arbeiten mit Hochdruck an der Lösung!
 
 [Shortcut02]
-Line1=
-Line2=
-Line3=
+Text=unihockey.swiss
 
 [Shortcut03]
-Line1=
-Line2=
-Line3=
+Text=
 
 [Shortcut04]
-Line1=
-Line2=
-Line3=
+Text=
 
 [Shortcut05]
-Line1=
-Line2=
-Line3=
+Text=
 
 [Shortcut06]
-Line1=
-Line2=
-Line3=
+Text=
 
 [Shortcut07]
-Line1=
-Line2=
-Line3=
+Text=
 
 [Shortcut08]
-Line1=
-Line2=
-Line3=
+Text=
 
 [Shortcut09]
-Line1=
-Line2=
-Line3=
-
-[Shortcut10]
-Line1=
-Line2=
-Line3=
-
-[Shortcut11]
-Line1=Highlights
-Line2=
-Line3=
-
-[Shortcut12]
-Line1=(c) Verein
-Line2=<Livestream Team Mitglieder>
-Line3=<Livestream Team Mitglieder>
-
-[Shortcut13]
-Line1=Technische Störung!
-Line2=Wir bitten um Entschuldigung!
-Line3=
+Text=
 
 [Card01]
-ButtonLabel=NLA Tabelle
-TitleName=Title-Ranking
+ButtonLabel=
+TitleName=
 
 [Card02]
-ButtonLabel=NLA Aktuelle Spielrunde
-TitleName=Title-CurrentGames
+ButtonLabel=
+TitleName=
 
 [Card03]
 ButtonLabel=
@@ -86,60 +57,74 @@ TitleName=
 ButtonLabel=
 TitleName=
 
+[Card05]
+ButtonLabel=
+TitleName=
+
+[Card06]
+ButtonLabel=
+TitleName=
+
+[Card07]
+ButtonLabel=
+TitleName=
+
+[Card08]
+ButtonLabel=
+TitleName=
+
 [Sponsor01]
-ButtonLabel=Bamert
+ButtonLabel=
 Title=Sponsor
-PicturePath=Pfad\zu\den\Vorlagen\Titles\Title_V07\Logos\Logo_Canon.png
+PicturePath=
 
 [Sponsor02]
-ButtonLabel=Canon
+ButtonLabel=
 Title=Sponsor
-PicturePath=Pfad\zu\den\Vorlagen\Titles\Title_V07\Logos\Logo_Canon.png
+PicturePath=
 
 [Sponsor03]
-ButtonLabel=Mobiliar
+ButtonLabel=Canon
 Title=Sponsor
-PicturePath=Pfad\zu\den\Vorlagen\Titles\Title_V07\Logos\Logo_Mobiliar.png
+PicturePath=D:\vMix\Titles\Title_V03_LUPL_SU\Sponsors\Logo_Canon.png
 
 [Sponsor04]
-ButtonLabel=Nüssli
+ButtonLabel=
 Title=Sponsor
-PicturePath=Pfad\zu\den\Vorlagen\Titles\Title_V07\Logos\Logo_Nüssli.png
+PicturePath=
 
 [Sponsor05]
-ButtonLabel=Regio
+ButtonLabel=XtendX
 Title=Sponsor
-PicturePath=Pfad\zu\den\Vorlagen\Titles\Title_V07\Logos\Logo_Regio.png
+PicturePath=D:\vMix\Titles\Title_V03_LUPL_SU\Sponsors\Logo_xtendx.png
 
 [Sponsor06]
-ButtonLabel=Schibli
+ButtonLabel=
 Title=Sponsor
-PicturePath=Pfad\zu\den\Vorlagen\Titles\Title_V07\Logos\Logo_Schibli.png
+PicturePath=
 
 [Sponsor07]
-ButtonLabel=Spital Uster
-Title=Sponsor
-PicturePath=Pfad\zu\den\Vorlagen\Titles\Title_V07\Logos\Logo_SpitalUster.png
+ButtonLabel=
+Title=
+PicturePath=
 
 [Sponsor08]
-ButtonLabel=Bank BSU
+ButtonLabel=
 Title=Sponsor
-PicturePath=Pfad\zu\den\Vorlagen\Titles\Title_V07\Logos\Logo_BankBSU.png
+PicturePath=
 
 [SponsorAuto]
-Order=1,2,3,4,5,6,7,8
-DurationPause=250
+Order=3,5
+DurationPause=170
 DurationShow=8
 
 [Hidden]
-TextPenalty=Strafe
-TextGoal=Torschütze
 TextOwnGoal=Eigentor
 TextOwnGoalShort=ET
 TextStarting6=Starting 6
 TextBestPlayer=Best Player
-TextTimeOut=Time-Out
-TextHeadcoach=Headcoach
+TextTimeOut=Time Out
+TextCoach=Coach
 TextCommentator=Kommentar
 TextReferee=Schiedsrichter
 TextResult1st=Resultat 1. Drittel
@@ -152,58 +137,11 @@ TextLineupHeader=Aufstellung
 TextLineupLabel1=Linie 1
 TextLineupLabel2=Linie 2
 TextLineupLabel3=Linie 3
-TextLineupLabel4=Ersatz
-TextLineupLabel5=Torhüter
-ScoreboardTeamDefaultColor=#e32412
+TextLineupLabel4=Linie 4
+TextLineupLabelTH=Goalies
 ScoreboardGameTimeRegular=20:00
 ScoreboardGameTimeOvertime=10:00
-ScoreboardPenaltyTimeTemplates=02:00,04:00,05:00
-ShowStatusReplay=1
-ShowStatusRecord=1
-ShowStatusStream=1
-ShowNDIMonitor=1
-AutoStarting6=0
-
-[PenaltyCodes2]
-201=Stockschlag
-202=Blockieren des Stockes
-203=Heben des Stockes
-204=Gefährlicher Stockeinsatz
-205=Hoher Fuss
-206=Hoher Stock
-207=Stossen
-208=Überharter Körpereinsatz
-209=Halten
-210=Sperren
-211=Unkorrekter Abstand
-212=Bodenspiel
-213.1=Spielen mit Hand
-213.2=Spielen mit Arm
-213.3=Spielen mit Kopf
-214=Torhüterbehinderung
-215=Wechselfehler
-216=Zu viele Spieler
-217=Wiederholte Vergehen
-218=Spielverzögerung
-219=Reklamieren
-220=Verlassen der Strafbank
-221=Unkorrekte Ausrüstung
-222=Falsche Materialbeanstandung
-223=Verhindern eines Tores
-224=Spielen ohne Stock
-;225=Nichtentfernen der Teile eines gebrochenen Stockes
-226=Unkorrekte Kleidung
-;227=Entgegennahme eines Stockes ausserhalb der Wechselzone
-
-[PenaltyCodes5]
-501=Grober Stockschlag
-502=Haken
-503=Stockwurf
-504=Grober Körpereinsatz
-505=Grobes Beinstellen
-
-[PenaltyCodes10]
-101=Unsportliches Benehmen
+ScoreboardPenaltyTimeTemplates=02:00,04:00
 
 [System-Config]
 [LastLineInConfig]

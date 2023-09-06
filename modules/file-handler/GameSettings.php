@@ -23,6 +23,7 @@
 	// Abschlitt [Game]
 	fwrite($file, "[Game]" . PHP_EOL);
 	fwrite($file, "GameNr=" . $_POST['GameNr'] . PHP_EOL);
+	fwrite($file, "LeagueId=" . $_POST['LeagueId'] . PHP_EOL);
 	fwrite($file, "Title=" . $_POST['Title'] . PHP_EOL);
 	fwrite($file, "Date=" . $_POST['Date'] . PHP_EOL);
 	fwrite($file, "Time=" . $_POST['Time'] . PHP_EOL);
@@ -38,16 +39,15 @@
 	$HomeTeamData = $_POST['HomeTeamData'];
 
 	foreach ($HomeTeamData["HomeTeamLineup"]['roster'] as $number => $name) {
+		$nr = $number == 0 ? '00' : $number;
 		if (strlen($name) != 0) {
-			fwrite($file, $number . "=" . $name . PHP_EOL);
+			fwrite($file, $nr . "=" . $name . PHP_EOL);
 		}
 	}
 
-	fwrite($file, "00=" . $HomeTeamData['HomeTeamLineup']['ts'] . PHP_EOL);
 	fwrite($file, "TeamLong=" . $HomeTeamData['HomeTeamLong'] . PHP_EOL);
 	fwrite($file, "TeamShort=" . $HomeTeamData['HomeTeamShort'] . PHP_EOL);
-	fwrite($file, "TeamColor=" . $HomeTeamData['HomeColor'] . PHP_EOL);
-	fwrite($file, "Headcoach=" . $HomeTeamData['HomeHeadcoach'] . PHP_EOL);
+	fwrite($file, "Coach=" . $HomeTeamData['HomeCoach'] . PHP_EOL);
 	fwrite($file, "Starting6=" . $HomeTeamData['HomeTeamLineup']['startingSix'] . PHP_EOL);
 
 	if ($HomeTeamData['HomeTeamLineup']['line1'] != null) { fwrite($file, "Line1=" . $HomeTeamData['HomeTeamLineup']['line1'] . PHP_EOL); }
@@ -63,16 +63,15 @@
 	$AwayTeamData = $_POST['AwayTeamData'];
 
 	foreach ($AwayTeamData["AwayTeamLineup"]['roster'] as $number => $name) {
+		$nr = $number == 0 ? '00' : $number;
 		if (strlen($name) != 0) {
-			fwrite($file, $number . "=" . $name . PHP_EOL);
+			fwrite($file, $nr . "=" . $name . PHP_EOL);
 		}
 	}
 
-	fwrite($file, "00=" . $AwayTeamData['AwayTeamLineup']['ts'] . PHP_EOL);
 	fwrite($file, "TeamLong=" . $AwayTeamData['AwayTeamLong'] . PHP_EOL);
 	fwrite($file, "TeamShort=" . $AwayTeamData['AwayTeamShort'] . PHP_EOL);
-	fwrite($file, "TeamColor=" . $AwayTeamData['AwayColor'] . PHP_EOL);
-	fwrite($file, "Headcoach=" . $AwayTeamData['AwayHeadcoach'] . PHP_EOL);
+	fwrite($file, "Coach=" . $AwayTeamData['AwayCoach'] . PHP_EOL);
 	fwrite($file, "Starting6=" . $AwayTeamData['AwayTeamLineup']['startingSix'] . PHP_EOL);
 
 	if ($AwayTeamData['AwayTeamLineup']['line1'] != null) { fwrite($file, "Line1=" . $AwayTeamData['AwayTeamLineup']['line1'] . PHP_EOL); }

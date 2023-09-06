@@ -31,6 +31,26 @@
 	}
 
 	fwrite($file, PHP_EOL);
+
+	// Abschlitt [PersonalSponsor]
+	fwrite($file, "[PersonalSponsor]" . PHP_EOL);
+	$PersonalSponsor = $_POST['PersonalSponsor'];
+
+	foreach ($PersonalSponsor as $key => $value) {
+		fwrite($file, $key . "=" . $value . PHP_EOL);
+	}
+
+	fwrite($file, PHP_EOL);
+
+	// Abschlitt [Scoreboard]
+	fwrite($file, "[Scoreboard]" . PHP_EOL);
+	$Scoreboard = $_POST['Scoreboard'];
+
+	foreach ($Scoreboard as $key => $value) {
+		fwrite($file, $key . "=" . $value . PHP_EOL);
+	}
+
+	fwrite($file, PHP_EOL);
 	
 	// Abschlitt [Shortcuts]
 	$ShortcutData = $_POST['ShortcutData'];
@@ -79,31 +99,6 @@
 	}
 	
 	fwrite($file, PHP_EOL);
-
-	// Abschlitt [PenaltyCodes2]
-	fwrite($file, "[PenaltyCodes2]" . PHP_EOL);
-
-	foreach ($ini_preset["PenaltyCodes2"] as $key => $value) {
- 		fwrite($file, $key . "=" . $value . PHP_EOL);
-	}
-
-	fwrite($file, PHP_EOL);
-
-	// Abschlitt [PenaltyCodes5]
-	fwrite($file, "[PenaltyCodes5]" . PHP_EOL);
-
-	foreach ($ini_preset["PenaltyCodes5"] as $key => $value) {
- 		fwrite($file, $key . "=" . $value . PHP_EOL);
-	}
-
-	fwrite($file, PHP_EOL);
-
-	// Abschlitt [PenaltyCodes10]
-	fwrite($file, "[PenaltyCodes10]" . PHP_EOL);
-
-	foreach ($ini_preset["PenaltyCodes10"] as $key => $value) {
- 		fwrite($file, $key . "=" . $value . PHP_EOL);
-	}
 
 	fwrite($file, PHP_EOL);
 	fwrite($file, "[System-Config]");

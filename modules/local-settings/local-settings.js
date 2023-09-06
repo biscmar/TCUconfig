@@ -36,41 +36,15 @@ function parseImportedLocalSettings(importedLocalSettings) {
     $("#stop-time-on-goal").val(importedLocalSettings.Scoreboard.StopTimeOnGoal);
     $("#hide-scoreboard-on-goal").val(importedLocalSettings.Scoreboard.HideScoreboardOnGoal);
 
-    $("#shortcut-01-line1").val(importedLocalSettings.Shortcut01.Line1);
-    $("#shortcut-01-line2").val(importedLocalSettings.Shortcut01.Line2);
-    $("#shortcut-01-line3").val(importedLocalSettings.Shortcut01.Line3);
-
-    $("#shortcut-02-line1").val(importedLocalSettings.Shortcut02.Line1);
-    $("#shortcut-02-line2").val(importedLocalSettings.Shortcut02.Line2);
-    $("#shortcut-02-line3").val(importedLocalSettings.Shortcut02.Line3);
-
-    $("#shortcut-03-line1").val(importedLocalSettings.Shortcut03.Line1);
-    $("#shortcut-03-line2").val(importedLocalSettings.Shortcut03.Line2);
-    $("#shortcut-03-line3").val(importedLocalSettings.Shortcut03.Line3);
-
-    $("#shortcut-04-line1").val(importedLocalSettings.Shortcut04.Line1);
-    $("#shortcut-04-line2").val(importedLocalSettings.Shortcut04.Line2);
-    $("#shortcut-04-line3").val(importedLocalSettings.Shortcut04.Line3);
-
-    $("#shortcut-05-line1").val(importedLocalSettings.Shortcut05.Line1);
-    $("#shortcut-05-line2").val(importedLocalSettings.Shortcut05.Line2);
-    $("#shortcut-05-line3").val(importedLocalSettings.Shortcut05.Line3);
-
-    $("#shortcut-06-line1").val(importedLocalSettings.Shortcut06.Line1);
-    $("#shortcut-06-line2").val(importedLocalSettings.Shortcut06.Line2);
-    $("#shortcut-06-line3").val(importedLocalSettings.Shortcut06.Line3);
-
-    $("#shortcut-07-line1").val(importedLocalSettings.Shortcut07.Line1);
-    $("#shortcut-07-line2").val(importedLocalSettings.Shortcut07.Line2);
-    $("#shortcut-07-line3").val(importedLocalSettings.Shortcut07.Line3);
-
-    $("#shortcut-08-line1").val(importedLocalSettings.Shortcut08.Line1);
-    $("#shortcut-08-line2").val(importedLocalSettings.Shortcut08.Line2);
-    $("#shortcut-08-line3").val(importedLocalSettings.Shortcut08.Line3);
-
-    $("#shortcut-09-line1").val(importedLocalSettings.Shortcut09.Line1);
-    $("#shortcut-09-line2").val(importedLocalSettings.Shortcut09.Line2);
-    $("#shortcut-09-line3").val(importedLocalSettings.Shortcut09.Line3);
+    $("#shortcut-01-line1").val(importedLocalSettings.Shortcut01.Text);
+    $("#shortcut-02-line1").val(importedLocalSettings.Shortcut02.Text);
+    $("#shortcut-03-line1").val(importedLocalSettings.Shortcut03.Text);
+    $("#shortcut-04-line1").val(importedLocalSettings.Shortcut04.Text);
+    $("#shortcut-05-line1").val(importedLocalSettings.Shortcut05.Text);
+    $("#shortcut-06-line1").val(importedLocalSettings.Shortcut06.Text);
+    $("#shortcut-07-line1").val(importedLocalSettings.Shortcut07.Text);
+    $("#shortcut-08-line1").val(importedLocalSettings.Shortcut08.Text);
+    $("#shortcut-09-line1").val(importedLocalSettings.Shortcut09.Text);
 
     $("#card-01-line1").val(importedLocalSettings.Card01.ButtonLabel);
     $("#card-01-line2").val(importedLocalSettings.Card01.TitleName);
@@ -135,9 +109,7 @@ function parseImportedLocalSettings(importedLocalSettings) {
 
 function getShortcutData(shortcutNr) {
     var shortcutList = new Object();
-    shortcutList.Line1 = $("#shortcut-" + shortcutNr + "-line1").val();
-    shortcutList.Line2 = $("#shortcut-" + shortcutNr + "-line2").val();
-    shortcutList.Line3 = $("#shortcut-" + shortcutNr + "-line3").val();
+    shortcutList.Text = $("#shortcut-" + shortcutNr + "-line1").val();
     return shortcutList;
 }
 

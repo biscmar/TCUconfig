@@ -23,6 +23,7 @@
 	// Abschlitt [Game]
 	fwrite($file, "[Game]" . PHP_EOL);
 	fwrite($file, "GameNr=" . $_POST['GameNr'] . PHP_EOL);
+	fwrite($file, "LeagueId=" . $_POST['LeagueId'] . PHP_EOL);
 	fwrite($file, "Title=" . $_POST['Title'] . PHP_EOL);
 	fwrite($file, "Date=" . $_POST['Date'] . PHP_EOL);
 	fwrite($file, "Time=" . $_POST['Time'] . PHP_EOL);

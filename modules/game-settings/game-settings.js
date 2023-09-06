@@ -350,6 +350,7 @@ async function downloadGameSettings(mode) {
             url: '../file-handler/GameSettings.php',
             data: {
                 GameNr: $('#game-id').val(),
+                LeagueId: $('#game-league-id').val(),
                 Title: $('#game-title').val(),
                 Date: $('#game-date').val(),
                 Time: $('#game-time').val(),
